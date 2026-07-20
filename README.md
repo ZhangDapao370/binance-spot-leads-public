@@ -1,6 +1,10 @@
 # Binance 现货新币台
 
-公开只读地址部署在 GitHub Pages。页面和 `data/listings.json` 每天北京时间 09:10 自动更新。
+公开只读地址：<https://zhangdapao370.github.io/binance-spot-leads-public/>
+
+AI JSON：<https://zhangdapao370.github.io/binance-spot-leads-public/data/listings.json>
+
+页面和 `data/listings.json` 每天北京时间 09:10 自动更新。
 
 ## 收录范围
 
