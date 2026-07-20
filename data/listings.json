@@ -1,0 +1,912 @@
+{
+  "schema_version": "1.0",
+  "public_read_only": true,
+  "timezone": "Asia/Shanghai",
+  "generated_at": "2026-07-20T02:02:03.165144Z",
+  "source": {
+    "name": "Binance",
+    "category": "New Cryptocurrency Listing",
+    "url": "https://www.binance.com/en/support/announcement/list/48"
+  },
+  "summary": {
+    "total": 30,
+    "seed_tag": 27,
+    "with_project_links": 29,
+    "with_contacts": 19
+  },
+  "items": [
+    {
+      "announcement_code": "1631198cd282431bbb5fbd333106a413",
+      "title": "Binance Will List Aerodrome (AERO) with Seed Tag Applied",
+      "project_name": "Aerodrome",
+      "symbol": "AERO",
+      "listing_type": "spot",
+      "published_at": "2026-07-17T07:30:01.964000Z",
+      "trading_starts_at": "2026-07-17T11:00:00Z",
+      "spot_pairs": [
+        "AERO/USDT",
+        "AERO/USDC",
+        "AERO/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/1631198cd282431bbb5fbd333106a413",
+      "project_links": [
+        "https://aerodrome.finance/"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://basescan.org/token/0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+      ],
+      "summary": "Aerodrome is the trading and liquidity hub of Base.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "4f90bec2f7984f71aaa9465830b1c6a6",
+      "title": "Binance Will List Re (RE) with Seed Tag Applied",
+      "project_name": "Re",
+      "symbol": "RE",
+      "listing_type": "spot",
+      "published_at": "2026-06-18T09:47:21.424000Z",
+      "trading_starts_at": "2026-06-18T14:00:00Z",
+      "spot_pairs": [
+        "RE/USDT",
+        "RE/USDC",
+        "RE/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/4f90bec2f7984f71aaa9465830b1c6a6",
+      "project_links": [
+        "https://re.xyz/"
+      ],
+      "contact_links": [
+        "https://twitter.com/re",
+        "https://discord.gg/reprotocol",
+        "https://t.me/re_protocol"
+      ],
+      "contract_links": [
+        "https://etherscan.io/address/0x526526528f35ac738177003b8773b402b8df8143"
+      ],
+      "summary": "Re is the capital layer for real-world assets, connecting global on-chain capital to the $1 trillion reinsurance market.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "4de6272354be421ba51ea042fd273a8d",
+      "title": "Binance Will List Genius Terminal (GENIUS) and OpenGradient (OPG) with Seed Tag Applied",
+      "project_name": "Genius Terminal",
+      "symbol": "GENIUS",
+      "listing_type": "spot",
+      "published_at": "2026-05-22T07:18:35.961000Z",
+      "trading_starts_at": "2026-05-22T11:00:00Z",
+      "spot_pairs": [
+        "GENIUS/USDT",
+        "GENIUS/USDC",
+        "GENIUS/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/4de6272354be421ba51ea042fd273a8d",
+      "project_links": [
+        "https://www.tradegenius.com/home"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://bscscan.com/address/0x1f12b85aac097e43aa1555b2881e98a51090e9a6",
+        "https://bscscan.com/token/0x5feCcD17C393CaF1001D18164236A37E731FCb9d#transactions",
+        "https://basescan.org/token/0xFbC2051AE2265686a469421b2C5A2D5462FbF5eB"
+      ],
+      "summary": "Genius Terminal is the first private and final on-chain terminal.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "4de6272354be421ba51ea042fd273a8d",
+      "title": "Binance Will List Genius Terminal (GENIUS) and OpenGradient (OPG) with Seed Tag Applied",
+      "project_name": "OpenGradient",
+      "symbol": "OPG",
+      "listing_type": "spot",
+      "published_at": "2026-05-22T07:18:35.961000Z",
+      "trading_starts_at": "2026-05-22T11:00:00Z",
+      "spot_pairs": [
+        "OPG/USDT",
+        "OPG/USDC",
+        "OPG/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/4de6272354be421ba51ea042fd273a8d",
+      "project_links": [
+        "https://www.opengradient.ai/"
+      ],
+      "contact_links": [
+        "https://x.com/OpenGradient",
+        "https://discord.com/invite/2t5sx5BCpB",
+        "https://www.opengradient.ai/contact",
+        "https://github.com/OpenGradient",
+        "https://www.linkedin.com/company/opengradientlabs/",
+        "https://discord.gg/2t5sx5BCpB"
+      ],
+      "contract_links": [
+        "https://bscscan.com/address/0x1f12b85aac097e43aa1555b2881e98a51090e9a6",
+        "https://bscscan.com/token/0x5feCcD17C393CaF1001D18164236A37E731FCb9d#transactions",
+        "https://basescan.org/token/0xFbC2051AE2265686a469421b2C5A2D5462FbF5eB"
+      ],
+      "summary": "OpenGradient is the Network for Open Intelligence, a decentralized infrastructure network designed to host, inference, and verify AI models at scale.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "71f44e5e014c445697bb6a6f70315e35",
+      "title": "Binance Will List Gensyn (AIGENSYN) with Seed Tag Applied",
+      "project_name": "Gensyn",
+      "symbol": "AIGENSYN",
+      "listing_type": "spot",
+      "published_at": "2026-05-14T10:00:03.676000Z",
+      "trading_starts_at": "2026-05-14T13:00:00Z",
+      "spot_pairs": [
+        "AIGENSYN/USDT",
+        "AIGENSYN/USDC",
+        "AIGENSYN/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/71f44e5e014c445697bb6a6f70315e35",
+      "project_links": [
+        "https://gensyn.network/"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://etherscan.io/address/0x4d7078DDd6cCFED2F85dB5B7D3Ff16828d378d48",
+        "https://gensyn-mainnet.explorer.alchemy.com/address/0x4e742319f6b0FeC4afA504fC8ED3cEAB0fb751A2"
+      ],
+      "summary": "Gensyn, the network for Machine Intelligence, is an open infrastructure layer for AI.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "506a7482e6b94bc58f3e275cb15c2861",
+      "title": "Binance Will List MegaETH (MEGA) with Seed Tag Applied",
+      "project_name": "MegaETH",
+      "symbol": "MEGA",
+      "listing_type": "spot",
+      "published_at": "2026-04-30T09:07:29.704000Z",
+      "trading_starts_at": "2026-04-30T11:00:00Z",
+      "spot_pairs": [
+        "MEGA/USDT",
+        "MEGA/USDC",
+        "MEGA/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/506a7482e6b94bc58f3e275cb15c2861",
+      "project_links": [
+        "https://www.megaeth.com/"
+      ],
+      "contact_links": [
+        "https://testnet.megaeth.com/?tag=faucet"
+      ],
+      "contract_links": [
+        "https://mega.etherscan.io/"
+      ],
+      "summary": "MegaETH is a fully EVM equivalent, optimistic L2 using Ethereum for settlement and EigenDA for data availability.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "fd57a395639b466ab8bfc792670c679d",
+      "title": "Binance Will List Chip (CHIP) with Seed Tag Applied",
+      "project_name": "Chip",
+      "symbol": "CHIP",
+      "listing_type": "spot",
+      "published_at": "2026-04-21T12:00:32.132000Z",
+      "trading_starts_at": "2026-04-21T13:30:00Z",
+      "spot_pairs": [
+        "CHIP/USDT",
+        "CHIP/USDC",
+        "CHIP/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/fd57a395639b466ab8bfc792670c679d",
+      "project_links": [
+        "https://usd.ai/"
+      ],
+      "contact_links": [
+        "https://github.com/metastreet-labs",
+        "https://x.com/USDai_Official",
+        "https://www.linkedin.com/company/usd-ai/",
+        "https://t.me/usdaiofficial"
+      ],
+      "contract_links": [
+        "https://arbiscan.io/address/0x0c1c1c109fe34733fca54b82d7b46b75cfb71f6e"
+      ],
+      "summary": "A permissionless lending protocol built to finance AI infrastructure. The protocol enables GPU operators to tokenize their hardware as collateral and access financing instantaneously.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "20861b38a9c246ff92db218bae2e83fa",
+      "title": "Binance Will List Tether Gold (XAUt) with Seed Tag Applied",
+      "project_name": "Tether Gold",
+      "symbol": "XAUT",
+      "listing_type": "spot",
+      "published_at": "2026-03-26T10:45:28.143000Z",
+      "trading_starts_at": "2026-03-26T13:30:00Z",
+      "spot_pairs": [
+        "XAUT/USDT",
+        "XAUT/BTC",
+        "XAUT/U",
+        "XAUT/USDC",
+        "XAUT/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/20861b38a9c246ff92db218bae2e83fa",
+      "project_links": [
+        "https://gold.tether.to"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://bscscan.com/address/0x21cAef8A43163Eea865baeE23b9C2E327696A3bf",
+        "https://etherscan.io/token/0x68749665FF8D2d112Fa859AA293F07A622782F38"
+      ],
+      "summary": "Tether Gold (XAUt) is a product developed to combine the benefits of physical and digital assets by allowing its holders to own physical gold in the form of a digital token.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "bcd4473a511948bf8b305f0f6a695313",
+      "title": "Binance Will List Centrifuge (CFG) with Seed Tag Applied",
+      "project_name": "Centrifuge",
+      "symbol": "CFG",
+      "listing_type": "spot",
+      "published_at": "2026-03-16T10:22:39.260000Z",
+      "trading_starts_at": "2026-03-16T13:00:00Z",
+      "spot_pairs": [
+        "CFG/USDT",
+        "CFG/USDC",
+        "CFG/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/bcd4473a511948bf8b305f0f6a695313",
+      "project_links": [
+        "https://centrifuge.io/"
+      ],
+      "contact_links": [
+        "https://centrifuge.io/contact",
+        "https://twitter.com/centrifuge",
+        "https://www.linkedin.com/company/centrifugehq/",
+        "https://github.com/centrifuge/",
+        "https://www.youtube.com/channel/UCfNkoq7YLrr8MeSJ3a6jVcA",
+        "https://discord.com/invite/yEzyUq5gxF"
+      ],
+      "contract_links": [
+        "https://etherscan.io/token/0xcccccccccc33d538dbc2ee4feab0a7a1ff4e8a94"
+      ],
+      "summary": "Centrifuge powers institutional-grade tokenization with automated infrastructure, multichain reach, and deep DeFi connectivity.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "01f1ef18ab314cc78cd3744760e4dc1f",
+      "title": "Binance Will List Katana (KAT) with Seed Tag Applied",
+      "project_name": "Katana",
+      "symbol": "KAT",
+      "listing_type": "spot",
+      "published_at": "2026-03-13T01:45:36.337000Z",
+      "trading_starts_at": "2026-03-18T13:00:00Z",
+      "spot_pairs": [
+        "KAT/USDT",
+        "KAT/USDC",
+        "KAT/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/01f1ef18ab314cc78cd3744760e4dc1f",
+      "project_links": [
+        "https://katana.network"
+      ],
+      "contact_links": [
+        "https://x.com/katana",
+        "https://discord.gg/katananetwork",
+        "https://discord.gg/FRexENP7xx"
+      ],
+      "contract_links": [
+        "https://katanascan.com/token/0x7f1f4b4b29f5058fa32cc7a97141b8d7e5abdc2d"
+      ],
+      "summary": "Katana is a DeFi focused blockchain focused on delivering deep liquidity and native yield.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "82c9c8166a2a434681c20a23a346a5b8",
+      "title": "Binance Will List Fabric Protocol (ROBO) with Seed Tag Applied",
+      "project_name": "Fabric Protocol",
+      "symbol": "ROBO",
+      "listing_type": "spot",
+      "published_at": "2026-03-04T13:13:14.452000Z",
+      "trading_starts_at": "2026-03-04T16:30:00Z",
+      "spot_pairs": [
+        "ROBO/USDT",
+        "ROBO/USDC",
+        "ROBO/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/82c9c8166a2a434681c20a23a346a5b8",
+      "project_links": [
+        "https://fabric.foundation/"
+      ],
+      "contact_links": [
+        "https://x.com/FabricFND",
+        "https://fabric.foundation/blog/robo-governance-phase-1-foundation-security-council"
+      ],
+      "contract_links": [
+        "https://bscscan.com/token/0x475cbf5919608e0c6Af00e7bf87FaB83bF3Ef6e2",
+        "https://etherscan.io/token/0x32b4d049fe4c888d2b92eecaf729f44df6b1f36e"
+      ],
+      "summary": "Fabric Protocol is a decentralized infrastructure for coordinating robots and AI workloads across devices, services and human.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "c8f9e4e1e7de458482a2af3cf64c9093",
+      "title": "Binance Will List Espresso (ESP) with Seed Tag Applied",
+      "project_name": "Espresso",
+      "symbol": "ESP",
+      "listing_type": "spot",
+      "published_at": "2026-02-12T07:28:23.176000Z",
+      "trading_starts_at": "2026-02-12T13:00:00Z",
+      "spot_pairs": [
+        "ESP/USDT",
+        "ESP/USDC",
+        "ESP/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/c8f9e4e1e7de458482a2af3cf64c9093",
+      "project_links": [
+        "https://espresso.foundation/"
+      ],
+      "contact_links": [
+        "https://www.x.com/espressoFNDN",
+        "https://distributedlab.com/"
+      ],
+      "contract_links": [
+        "https://etherscan.io/token/0x031de51f3e8016514bd0963d0b2ab825a591db9a",
+        "https://arbiscan.io/token/0x3b8db18e69d6686ad9371a423afe3dd1065c94f1"
+      ],
+      "summary": "Espresso is a decentralised base layer aimed at improving Layer 2 rollup performance, interoperability and security.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "c411646abd94488bba084537c5563beb",
+      "title": "Binance Will List Zama (ZAMA) with Seed Tag Applied",
+      "project_name": "Zama",
+      "symbol": "ZAMA",
+      "listing_type": "spot",
+      "published_at": "2026-02-02T04:28:43.224000Z",
+      "trading_starts_at": "2026-02-02T13:00:00Z",
+      "spot_pairs": [
+        "ZAMA/USDT",
+        "ZAMA/USDC",
+        "ZAMA/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/c411646abd94488bba084537c5563beb",
+      "project_links": [
+        "https://www.zama.org/"
+      ],
+      "contact_links": [
+        "https://github.com/zama-ai",
+        "https://www.zama.org/contact",
+        "https://github.com/zama-ai/awesome-zama#research-papers-and-publications",
+        "https://x.com/zama",
+        "https://t.me/zama_on_telegram",
+        "https://www.linkedin.com/company/34914422/",
+        "https://www.zama.org/community-channels",
+        "http://t.me/zama_on_telegram",
+        "https://www.linkedin.com/company/34914422"
+      ],
+      "contract_links": [
+        "https://etherscan.io/token/0xa12cc123ba206d4031d1c7f6223d1c2ec249f4f3",
+        "https://bscscan.com/token/0x6907a5986c4950bdaf2f81828ec0737ce787519f"
+      ],
+      "summary": "Zama Protocol is a cross-chain confidentiality layer that enables issuing, managing and trading assets confidentially on any L1 or L2, using Fully Homomorphic Encryption (FHE).",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "85af9e52f60547dd8f7b67fd3dc2f7b4",
+      "title": "Binance Will List Sentient (SENT) with Seed Tag Applied",
+      "project_name": "Sentient",
+      "symbol": "SENT",
+      "listing_type": "spot",
+      "published_at": "2026-01-22T05:25:54.238000Z",
+      "trading_starts_at": "2026-01-22T12:00:00Z",
+      "spot_pairs": [
+        "SENT/USDT",
+        "SENT/USDC",
+        "SENT/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/85af9e52f60547dd8f7b67fd3dc2f7b4",
+      "project_links": [
+        "https://www.sentient.xyz"
+      ],
+      "contact_links": [
+        "https://github.com/sentient-agi",
+        "https://x.com/SentientAGI",
+        "https://discord.com/invite/sentientfoundation",
+        "https://github.com/sentient-agi/EvoSkill",
+        "https://www.eldros.ai/",
+        "https://github.com/composiohq",
+        "https://x.com/composio",
+        "https://github.com/ComposioHQ/composio",
+        "mailto:contact@sentient.xyz",
+        "https://www.linkedin.com/company/sentientagi/",
+        "https://www.sentient.xyz/contact"
+      ],
+      "contract_links": [
+        "https://etherscan.io/token/0x56A3BA04E95d34268A19b2a4474DC979baBDaf76"
+      ],
+      "summary": "Sentient Labs is building the GRID, a large open intelligence network, where over 100 AI models, agents, tools, and research projects work together as one unified system.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "29ba8e4cfa1b45ea88653c029cedd0cd",
+      "title": "Binance Will List Ripple USD (RLUSD) and Introduce RLUSD Zero Trading Fee Promotion",
+      "project_name": "Ripple USD",
+      "symbol": "RLUSD",
+      "listing_type": "spot",
+      "published_at": "2026-01-21T08:30:01.712000Z",
+      "trading_starts_at": "2026-01-22T08:00:00Z",
+      "spot_pairs": [
+        "RLUSD/USDT",
+        "RLUSD/U"
+      ],
+      "seed_tag": false,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/29ba8e4cfa1b45ea88653c029cedd0cd",
+      "project_links": [
+        "https://ripple.com/solutions/stablecoin/"
+      ],
+      "contact_links": [
+        "https://ripple.com/contact/sales/",
+        "https://github.com/ripple/RLUSD-Implementation",
+        "https://ripple.com/contact/",
+        "https://x.com/Ripple",
+        "https://www.youtube.com/channel/UCjok1uTSBUgvRYQaASz6YWw",
+        "https://www.linkedin.com/company/ripple"
+      ],
+      "contract_links": [
+        "http://tonviewer.com",
+        "https://etherscan.io/token/0x8292bb45bf1ee4d140127049757c2e0ff06317ed"
+      ],
+      "summary": "",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "4ba222e6a62e4544a408ff1689682404",
+      "title": "Binance Will List Fogo (FOGO) with Seed Tag Applied",
+      "project_name": "Fogo",
+      "symbol": "FOGO",
+      "listing_type": "spot",
+      "published_at": "2026-01-12T12:50:53.294000Z",
+      "trading_starts_at": "2026-01-15T14:00:00Z",
+      "spot_pairs": [
+        "FOGO/USDT",
+        "FOGO/USDC",
+        "FOGO/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/4ba222e6a62e4544a408ff1689682404",
+      "project_links": [
+        "http://fogoscan.com",
+        "https://www.fogo.io/"
+      ],
+      "contact_links": [
+        "https://x.com/fogo",
+        "https://discord.gg/FogoChain",
+        "https://www.linkedin.com/company/fogochain",
+        "http://fogoscan.com/contactus"
+      ],
+      "contract_links": [],
+      "summary": "Fogo is a high-performance L1 that utilizes Solana Virtual Machine.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "54de0a1147d04cf382707002a30901fd",
+      "title": "Binance Will List United Stables (U) and Introduce U Zero Trading Fee Promotion",
+      "project_name": "United Stables",
+      "symbol": "U",
+      "listing_type": "spot",
+      "published_at": "2026-01-12T07:30:07.638000Z",
+      "trading_starts_at": "2026-01-13T08:00:00Z",
+      "spot_pairs": [
+        "U/USDT",
+        "U/USDC"
+      ],
+      "seed_tag": false,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/54de0a1147d04cf382707002a30901fd",
+      "project_links": [
+        "https://u.tech/"
+      ],
+      "contact_links": [
+        "https://x.com/UTechStables",
+        "https://t.me/Ustables"
+      ],
+      "contract_links": [
+        "http://tonviewer.com",
+        "https://bscscan.com/token/0xcE24439F2D9C6a2289F741120FE202248B666666"
+      ],
+      "summary": "",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "51881f9d018242ce80bed6ce015de2a7",
+      "title": "Binance Will List 币安人生 (币安人生) and zkPass (ZKP) with Seed Tag Applied",
+      "project_name": "zkPass",
+      "symbol": "ZKP",
+      "listing_type": "spot",
+      "published_at": "2026-01-07T10:39:06.580000Z",
+      "trading_starts_at": "2026-01-07T14:00:00Z",
+      "spot_pairs": [
+        "ZKP/USDT",
+        "ZKP/USDC",
+        "ZKP/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/51881f9d018242ce80bed6ce015de2a7",
+      "project_links": [
+        "https://zkpass.org"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://bscscan.com/token/0x924fa68a0FC644485b8df8AbfA0A41C2e7744444",
+        "https://etherscan.io/token/0xe1be424f442d0687129128c6c38aace44f8c8dbc",
+        "https://bscscan.com/token/0xd89B7dD376E671c124352267516BEF1C2cc231a3",
+        "https://basescan.org/token/0xc6c1be6c6d828f9cea70f1b8351879510fbf0065"
+      ],
+      "summary": "zkPass is a decentralized oracle protocol that transforms private internet data into verifiable proofs on-chain.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "fd835b4cd95f4af89c461070994e684d",
+      "title": "Binance Will List Lorenzo Protocol (BANK) and Meteora (MET) with Seed Tag Applied",
+      "project_name": "Lorenzo Protocol",
+      "symbol": "BANK",
+      "listing_type": "spot",
+      "published_at": "2025-11-13T10:00:26.501000Z",
+      "trading_starts_at": "2025-11-13T14:00:00Z",
+      "spot_pairs": [
+        "BANK/USDT",
+        "BANK/USDC",
+        "BANK/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/fd835b4cd95f4af89c461070994e684d",
+      "project_links": [
+        "https://www.lorenzo-protocol.xyz/home"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://bscscan.com/token/0x3AeE7602b612de36088F3ffEd8c8f10E86EbF2bF",
+        "https://solscan.io/token/METvsvVRapdj9cFLzq4Tr43xK4tAjQfwX76z3n6mWQL"
+      ],
+      "summary": "An institutional grade asset management platform.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "fd835b4cd95f4af89c461070994e684d",
+      "title": "Binance Will List Lorenzo Protocol (BANK) and Meteora (MET) with Seed Tag Applied",
+      "project_name": "Meteora",
+      "symbol": "MET",
+      "listing_type": "spot",
+      "published_at": "2025-11-13T10:00:26.501000Z",
+      "trading_starts_at": "2025-11-13T14:00:00Z",
+      "spot_pairs": [
+        "MET/USDT",
+        "MET/USDC",
+        "MET/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/fd835b4cd95f4af89c461070994e684d",
+      "project_links": [
+        "https://www.meteora.ag/"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://bscscan.com/token/0x3AeE7602b612de36088F3ffEd8c8f10E86EbF2bF",
+        "https://solscan.io/token/METvsvVRapdj9cFLzq4Tr43xK4tAjQfwX76z3n6mWQL"
+      ],
+      "summary": "A dynamic liquidity layer in DeFi, offering tools for liquidity providers, launchpads, and token launches.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "ff209dd797b2418198c312a1a266e73a",
+      "title": "Binance Will List Aster (ASTER) with Seed Tag Applied",
+      "project_name": "Aster",
+      "symbol": "ASTER",
+      "listing_type": "spot",
+      "published_at": "2025-10-06T07:48:49.954000Z",
+      "trading_starts_at": "2025-10-06T12:00:00Z",
+      "spot_pairs": [
+        "ASTER/USDT",
+        "ASTER/USDC",
+        "ASTER/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/ff209dd797b2418198c312a1a266e73a",
+      "project_links": [],
+      "contact_links": [],
+      "contract_links": [
+        "https://bscscan.com/address/0x000Ae314E2A2172a039B26378814C252734f556A"
+      ],
+      "summary": "Aster is a next-generation decentralized perpetual exchange built for everyone.",
+      "contact_status": "待补充",
+      "reason": "Binance 公告没有识别出项目官网，需要人工二次确认。"
+    },
+    {
+      "announcement_code": "50ff03bc1d94471181887c43b930d3f0",
+      "title": "Binance Will List Avantis (AVNT) with Seed Tag Applied",
+      "project_name": "Avantis",
+      "symbol": "AVNT",
+      "listing_type": "spot",
+      "published_at": "2025-09-15T03:47:01.934000Z",
+      "trading_starts_at": "2025-09-15T05:00:00Z",
+      "spot_pairs": [
+        "AVNT/USDT",
+        "AVNT/USDC",
+        "AVNT/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/50ff03bc1d94471181887c43b930d3f0",
+      "project_links": [
+        "https://www.avantisfi.com/"
+      ],
+      "contact_links": [
+        "https://x.com/avantisfi",
+        "https://discord.gg/avantisfi"
+      ],
+      "contract_links": [
+        "https://basescan.org/address/0x696F9436B67233384889472Cd7cD58A6fB5DF4f1"
+      ],
+      "summary": "Avantis is an on-chain exchange enabling leveraged trading of synthetic crypto, forex, and commodities, while allowing users to provide liquidity for these markets.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "94ab969a74a8480799d03934b4720411",
+      "title": "Binance Will List Pump.fun (PUMP) with Seed Tag Applied",
+      "project_name": "Pump.fun",
+      "symbol": "PUMP",
+      "listing_type": "spot",
+      "published_at": "2025-09-11T11:37:53.797000Z",
+      "trading_starts_at": "2025-09-11T12:30:00Z",
+      "spot_pairs": [
+        "PUMP/USDT",
+        "PUMP/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/94ab969a74a8480799d03934b4720411",
+      "project_links": [
+        "https://pump.fun/"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://solscan.io/token/pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn"
+      ],
+      "summary": "Pump.fun is a meme coin launchpad on Solana.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "aebac85d4dd3470c9cd52df6f98d0811",
+      "title": "Binance Will List Ethena USDe (USDE)",
+      "project_name": "Ethena USDe",
+      "symbol": "USDE",
+      "listing_type": "spot",
+      "published_at": "2025-09-09T07:00:01.439000Z",
+      "trading_starts_at": "2025-09-09T12:00:00Z",
+      "spot_pairs": [
+        "USDE/USDC",
+        "USDE/USDT"
+      ],
+      "seed_tag": false,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/aebac85d4dd3470c9cd52df6f98d0811",
+      "project_links": [
+        "https://ethena.fi/"
+      ],
+      "contact_links": [
+        "https://x.com/ethena/status/1965368486580105439",
+        "https://x.com/ethena",
+        "https://discord.gg/ethena"
+      ],
+      "contract_links": [
+        "http://tonviewer.com",
+        "https://bscscan.com/token/0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
+        "https://etherscan.io/token/0x4c9edd5852cd905f086c759e8383e09bff1e68b3"
+      ],
+      "summary": "",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "503b79756ba04a1cac0dfd6216958422",
+      "title": "Binance Will List World Liberty Financial (WLFI) with Seed Tag Applied",
+      "project_name": "World Liberty Financial",
+      "symbol": "WLFI",
+      "listing_type": "spot",
+      "published_at": "2025-09-01T01:49:05.082000Z",
+      "trading_starts_at": "2025-09-01T13:00:00Z",
+      "spot_pairs": [
+        "WLFI/USDT",
+        "WLFI/USDC",
+        "WLFI/TRY"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/503b79756ba04a1cac0dfd6216958422",
+      "project_links": [
+        "https://worldlibertyfinancial.com/"
+      ],
+      "contact_links": [
+        "https://worldlibertyfinancial.com/contact"
+      ],
+      "contract_links": [
+        "https://etherscan.io/token/0xda5e1988097297dcdc1f90d4dfe7909e847cbef6",
+        "https://bscscan.com/address/0x47474747477b199288bF72a1D702f7Fe0Fb1DEeA",
+        "https://solscan.io/token/WLFinEv6ypjkczcS83FZqFpgFZYwQXutRbxGe7oC16g"
+      ],
+      "summary": "World Liberty Financial is a DeFi protocol and governance platform inspired by President Donald J. Trump, launching the USD1 stablecoin and USD1+ ecosystem to deliver transparent, accessible, and low-cost global financial solutions.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "2ebd8f9d2acc4123a9f372a650760b66",
+      "title": "Binance Will List Maple Finance (SYRUP) and Kamino Finance (KMNO) with Seed Tag Applied",
+      "project_name": "Maple Finance",
+      "symbol": "SYRUP",
+      "listing_type": "spot",
+      "published_at": "2025-05-06T11:25:20.814000Z",
+      "trading_starts_at": "2025-05-06T15:00:00Z",
+      "spot_pairs": [
+        "SYRUP/USDT",
+        "SYRUP/USDC"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/2ebd8f9d2acc4123a9f372a650760b66",
+      "project_links": [
+        "https://maple.finance/",
+        "https://app.kamino.finance/"
+      ],
+      "contact_links": [
+        "https://maple.finance/#contact",
+        "https://x.com/maplefinance",
+        "https://www.youtube.com/channel/UCXJPzNcN_kSXj82EfRrV1pQ",
+        "https://www.linkedin.com/company/maplefinance/",
+        "https://t.me/maplefinance"
+      ],
+      "contract_links": [
+        "https://etherscan.io/token/0x643C4E15d7d62Ad0aBeC4a9BD4b001aA3Ef52d66",
+        "https://basescan.org/token/0x688aee022aa544f150678b8e5720b6b96a9e9a2f",
+        "https://solscan.io/token/KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS"
+      ],
+      "summary": "Maple Finance is an on-chain institutional lending platform.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "2ebd8f9d2acc4123a9f372a650760b66",
+      "title": "Binance Will List Maple Finance (SYRUP) and Kamino Finance (KMNO) with Seed Tag Applied",
+      "project_name": "Kamino Finance",
+      "symbol": "KMNO",
+      "listing_type": "spot",
+      "published_at": "2025-05-06T11:25:20.814000Z",
+      "trading_starts_at": "2025-05-06T15:00:00Z",
+      "spot_pairs": [
+        "KMNO/USDT",
+        "KMNO/USDC"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/2ebd8f9d2acc4123a9f372a650760b66",
+      "project_links": [
+        "https://maple.finance/",
+        "https://app.kamino.finance/"
+      ],
+      "contact_links": [
+        "https://maple.finance/#contact",
+        "https://x.com/maplefinance",
+        "https://www.youtube.com/channel/UCXJPzNcN_kSXj82EfRrV1pQ",
+        "https://www.linkedin.com/company/maplefinance/",
+        "https://t.me/maplefinance"
+      ],
+      "contract_links": [
+        "https://etherscan.io/token/0x643C4E15d7d62Ad0aBeC4a9BD4b001aA3Ef52d66",
+        "https://basescan.org/token/0x688aee022aa544f150678b8e5720b6b96a9e9a2f",
+        "https://solscan.io/token/KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS"
+      ],
+      "summary": "Kamino Finance is the leading borrow/lend protocol on Solana that offers a wide range of yield and liquidity solutions.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    },
+    {
+      "announcement_code": "8aa1b6610a534fcb95b46956f2ed4391",
+      "title": "Binance Will List Cheems (1000CHEEMS) and Test (TST) with Seed Tag Applied",
+      "project_name": "Cheems",
+      "symbol": "1000CHEEMS",
+      "listing_type": "spot",
+      "published_at": "2025-02-09T07:10:31.264000Z",
+      "trading_starts_at": "2025-02-09T11:00:00Z",
+      "spot_pairs": [
+        "1000CHEEMS/USDT",
+        "1000CHEEMS/USDC"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/8aa1b6610a534fcb95b46956f2ed4391",
+      "project_links": [
+        "https://cheems.pet/"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://bscscan.com/token/0x0df0587216a4a1bb7d5082fdc491d93d2dd4b413",
+        "https://bscscan.com/token/0x86Bb94DdD16Efc8bc58e6b056e8df71D9e666429"
+      ],
+      "summary": "Cheems is a Shiba Inu Meme coin issued on BSC.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "8aa1b6610a534fcb95b46956f2ed4391",
+      "title": "Binance Will List Cheems (1000CHEEMS) and Test (TST) with Seed Tag Applied",
+      "project_name": "Test",
+      "symbol": "TST",
+      "listing_type": "spot",
+      "published_at": "2025-02-09T07:10:31.264000Z",
+      "trading_starts_at": "2025-02-09T11:00:00Z",
+      "spot_pairs": [
+        "TST/USDT",
+        "TST/USDC"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/8aa1b6610a534fcb95b46956f2ed4391",
+      "project_links": [
+        "https://testtoken.vip/"
+      ],
+      "contact_links": [],
+      "contract_links": [
+        "https://bscscan.com/token/0x0df0587216a4a1bb7d5082fdc491d93d2dd4b413",
+        "https://bscscan.com/token/0x86Bb94DdD16Efc8bc58e6b056e8df71D9e666429"
+      ],
+      "summary": "TST is a test token deployed by BNBchain on four.meme.",
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
+    },
+    {
+      "announcement_code": "098d3a7afe5244b5ba6ea728f933817f",
+      "title": "Binance Will List OFFICIAL TRUMP (TRUMP) with Seed Tag Applied",
+      "project_name": "OFFICIAL TRUMP",
+      "symbol": "TRUMP",
+      "listing_type": "spot",
+      "published_at": "2025-01-19T04:05:42.151000Z",
+      "trading_starts_at": "2025-01-19T08:30:00Z",
+      "spot_pairs": [
+        "TRUMP/USDC",
+        "TRUMP/USDT"
+      ],
+      "seed_tag": true,
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/098d3a7afe5244b5ba6ea728f933817f",
+      "project_links": [
+        "https://gettrumpmemes.com/"
+      ],
+      "contact_links": [
+        "https://x.com/GetTrumpMemes"
+      ],
+      "contract_links": [
+        "https://solscan.io/token/6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN"
+      ],
+      "summary": "TRUMP is the official Trump meme.",
+      "contact_status": "完整",
+      "reason": "已找到项目官网和社区、代码或联系入口。"
+    }
+  ]
+}
