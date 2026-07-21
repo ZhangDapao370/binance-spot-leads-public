@@ -1,4 +1,4 @@
-name: 每日更新 Binance 现货新币
+name: 每日更新 Binance 现货与永续合约
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: binance-spot-daily-sync
+  group: binance-market-daily-sync
   cancel-in-progress: false
 
 jobs:
@@ -45,6 +45,20 @@ jobs:
             --all-json data/listings.json \
             --state /tmp/binance_seen.json
 
+      - name: 抓取 Binance 官方永续合约公告
+        run: |
+          sleep 30
+          python scripts/binance_perpetual_contract_monitor.py \
+            --no-proxy \
+            --limit 60 \
+            --scan-pages 30 \
+            --include-seen \
+            --csv /tmp/binance_perpetual_new.csv \
+            --json /tmp/binance_perpetual_new.json \
+            --all-csv data/contracts.csv \
+            --all-json data/contracts.json \
+            --state /tmp/binance_seen_perpetual.json
+
       - name: 校验公开数据
         run: |
           python - <<'PY'
@@ -66,16 +80,34 @@ jobs:
           if any("workflow_status" in item or "notes" in item for item in items):
               raise SystemExit("遇到错误：公开数据校验，返回内容：包含内部处理字段")
           print(f"完成：公开数据校验通过，共 {len(items)} 条现货记录")
+
+          contracts_payload = json.loads(Path("data/contracts.json").read_text(encoding="utf-8"))
+          contracts = contracts_payload.get("items")
+          if not contracts_payload.get("public_read_only"):
+              raise SystemExit("遇到错误：合约数据校验，返回内容：public_read_only 不是 true")
+          if not isinstance(contracts, list) or not contracts:
+              raise SystemExit("遇到错误：合约数据校验，返回内容：items 为空或不是列表")
+          if any(item.get("listing_type") != "perpetual" for item in contracts):
+              raise SystemExit("遇到错误：合约数据校验，返回内容：出现非永续合约记录")
+          required = ("contract_symbol", "launch_time", "underlying", "maximum_leverage")
+          if any(not all(item.get(field) for field in required) for item in contracts):
+              raise SystemExit("遇到错误：合约数据校验，返回内容：存在合约代码、开盘时间、标的或杠杆为空的记录")
+          blocked_words = ("Delist", "Delivery Contract", "Tick Size", "Update")
+          if any(any(word in item.get("title", "") for word in blocked_words) for item in contracts):
+              raise SystemExit("遇到错误：合约数据校验，返回内容：混入下架、交割合约或参数更新公告")
+          if any("workflow_status" in item or "notes" in item for item in contracts):
+              raise SystemExit("遇到错误：合约数据校验，返回内容：包含内部处理字段")
+          print(f"完成：合约数据校验通过，共 {len(contracts)} 条永续合约记录")
           PY
 
       - name: 提交数据变化
         run: |
-          if git diff --quiet -- data/listings.json data/listings.csv; then
+          if git diff --quiet -- data/listings.json data/listings.csv data/contracts.json data/contracts.csv; then
             echo "完成：本次官方数据没有变化"
             exit 0
           fi
-          git config user.name "Binance 现货新币自动任务"
+          git config user.name "Binance 上新自动任务"
           git config user.email "actions@users.noreply.github.com"
-          git add data/listings.json data/listings.csv
-          git commit -m "每日更新币安现货新币数据"
+          git add data/listings.json data/listings.csv data/contracts.json data/contracts.csv
+          git commit -m "每日更新币安现货与永续合约数据"
           git push
