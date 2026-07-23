@@ -3,7 +3,7 @@
   "data_type": "binance_perpetual_contracts",
   "public_read_only": true,
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-07-22T04:29:43.359948Z",
+  "generated_at": "2026-07-23T04:28:00.763087Z",
   "source": {
     "name": "Binance",
     "category": "New Cryptocurrency Listing",
@@ -18,6 +18,31 @@
     "tradfi": 50
   },
   "items": [
+    {
+      "announcement_code": "fcdc949b45a644c78e341c88331a35ef",
+      "title": "Binance Futures Will Launch POPMARTUSDT USDⓈ-Margined Perpetual Contract (2026-07-23)",
+      "contract_symbol": "POPMARTUSDT",
+      "base_symbol": "POPMART",
+      "listing_type": "perpetual",
+      "margin_type": "USDⓈ-M",
+      "product_variant": "USDT-Priced",
+      "asset_type": "股票",
+      "launch_stage": "standard",
+      "published_at": "2026-07-23T01:30:03.723000Z",
+      "launch_time": "2026-07-23T02:30:00Z",
+      "underlying": "Pop Mart International Group Ltd (HKEX: 9992)",
+      "settlement_asset": "USDT",
+      "maximum_leverage": "25x",
+      "capped_funding_rate": "+2.00% / -2.00%",
+      "funding_interval": "Every Eight Hours",
+      "tick_size": "0.01",
+      "min_trade_amount": "0.01 POPMART",
+      "min_notional_value": "5 USDT",
+      "trading_hours": "24/7",
+      "project_info": "",
+      "trade_url": "https://www.binance.com/en/futures/POPMARTUSDT",
+      "announcement_url": "https://www.binance.com/en/support/announcement/detail/fcdc949b45a644c78e341c88331a35ef"
+    },
     {
       "announcement_code": "f43403ef11974998bc0f46420826577a",
       "title": "Binance Futures Will Launch Multiple USDⓈ-Margined TradFi Perpetual Contracts (2026-07-21)",
@@ -1492,31 +1517,6 @@
       "project_info": "BMNRUSDT Perpetual Contract tracks the price of BitMine Immersion Technologies, Inc. Common Stock (NYSE: BMNR).",
       "trade_url": "https://www.binance.com/en/futures/BMNRUSDT",
       "announcement_url": "https://www.binance.com/en/support/announcement/detail/f622c1f2a1a94ba1894d9a9e265fb4b9"
-    },
-    {
-      "announcement_code": "b893d3539ae34c47856013b1f3cc94fb",
-      "title": "Binance Futures Will Launch Multiple USDⓈ-Margined TradFi Perpetual Contracts (2026-06-10)",
-      "contract_symbol": "ZMUSDT",
-      "base_symbol": "ZM",
-      "listing_type": "perpetual",
-      "margin_type": "USDⓈ-M",
-      "product_variant": "",
-      "asset_type": "股票",
-      "launch_stage": "standard",
-      "published_at": "2026-06-10T04:30:19.549000Z",
-      "launch_time": "2026-06-10T09:00:00Z",
-      "underlying": "Zoom Communications, Inc. Class A Common Stock (Nasdaq: ZM)",
-      "settlement_asset": "USDT",
-      "maximum_leverage": "20x",
-      "capped_funding_rate": "+2.00% / -2.00%",
-      "funding_interval": "Every Eight Hours",
-      "tick_size": "0.01",
-      "min_trade_amount": "0.01 ZM",
-      "min_notional_value": "5 USDT",
-      "trading_hours": "24/7",
-      "project_info": "ZMUSDT Perpetual Contract tracks the price of Zoom Communications, Inc. Class A Common Stock (Nasdaq: ZM).",
-      "trade_url": "https://www.binance.com/en/futures/ZMUSDT",
-      "announcement_url": "https://www.binance.com/en/support/announcement/detail/b893d3539ae34c47856013b1f3cc94fb"
     }
   ]
 }
