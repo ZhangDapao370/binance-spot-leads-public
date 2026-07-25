@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "public_read_only": true,
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-07-24T04:25:53.392816Z",
+  "generated_at": "2026-07-25T04:21:44.994591Z",
   "source": {
     "name": "Binance",
     "category": "New Cryptocurrency Listing",
@@ -12,7 +12,7 @@
     "total": 30,
     "seed_tag": 27,
     "with_project_links": 29,
-    "with_contacts": 19
+    "with_contacts": 18
   },
   "items": [
     {
@@ -499,16 +499,11 @@
         "http://fogoscan.com",
         "https://www.fogo.io/"
       ],
-      "contact_links": [
-        "https://x.com/fogo",
-        "https://discord.gg/FogoChain",
-        "https://www.linkedin.com/company/fogochain",
-        "http://fogoscan.com/contactus"
-      ],
+      "contact_links": [],
       "contract_links": [],
       "summary": "Fogo is a high-performance L1 that utilizes Solana Virtual Machine.",
-      "contact_status": "完整",
-      "reason": "已找到项目官网和社区、代码或联系入口。"
+      "contact_status": "部分",
+      "reason": "已找到项目官网，社区或联系入口需要继续确认。"
     },
     {
       "announcement_code": "54de0a1147d04cf382707002a30901fd",
