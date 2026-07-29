@@ -36,6 +36,13 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
                     "quoteAsset": "USDT",
                     "isSpotTradingAllowed": True,
                 },
+                {
+                    "symbol": "ETHBTC",
+                    "status": "TRADING",
+                    "baseAsset": "ETH",
+                    "quoteAsset": "BTC",
+                    "isSpotTradingAllowed": True,
+                },
             ]
         }
         self.contracts = [
@@ -44,6 +51,7 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
             {"symbol": "NEWUSDT", "base_asset": "NEW", "quote_asset": "USDT"},
             {"symbol": "STOCKUSD1", "base_asset": "STOCK", "quote_asset": "USD1"},
             {"symbol": "ONLYUSDT", "base_asset": "ONLY", "quote_asset": "USDT"},
+            {"symbol": "ETHBTC", "base_asset": "ETH", "quote_asset": "BTC"},
         ]
         self.volumes = {
             "BTCUSDT": Decimal("900"),
@@ -51,6 +59,7 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
             "NEWUSDT": Decimal("100"),
             "STOCKUSD1": Decimal("200"),
             "ONLYUSDT": Decimal("300"),
+            "ETHBTC": Decimal("50"),
         }
 
     def test_calculates_four_required_metrics(self):
@@ -85,6 +94,8 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
             {"symbol": "1000PEPEUSDT", "base_asset": "1000PEPE", "quote_asset": "USDT"},
         )
         self.assertIsNone(MODULE.archive_contract("BTCUSDT_260925"))
+        self.assertEqual(MODULE.archive_contract("BTCU")["quote_asset"], "U")
+        self.assertEqual(MODULE.archive_contract("ETHBTC")["quote_asset"], "BTC")
         with self.assertRaisesRegex(RuntimeError, "无法识别计价资产"):
             MODULE.archive_contract("UNKNOWNPAIR")
 

@@ -44,7 +44,8 @@ FUTURES_ARCHIVE_TEMPLATE = (
     "https://data.binance.vision/data/futures/um/daily/klines/"
     "{symbol}/1d/{symbol}-1d-{volume_date}.zip"
 )
-QUOTE_ASSETS = ("FDUSD", "USDT", "USDC", "BUSD", "TUSD", "USD1")
+QUOTE_ASSETS = ("FDUSD", "USDT", "USDC", "BUSD", "TUSD", "USD1", "BTC", "U")
+STABLE_QUOTE_ASSETS = {"FDUSD", "USDT", "USDC", "BUSD", "TUSD", "USD1", "U"}
 MULTIPLIER_PREFIXES = ("10000000", "1000000", "100000", "10000", "1000")
 
 
@@ -388,6 +389,15 @@ def build_metrics_payload(
             contract["base_asset"], contract["quote_asset"], spot_pairs
         )
     ]
+    unsupported_quotes = sorted(
+        {contract["quote_asset"] for contract in futures_only}
+        - STABLE_QUOTE_ASSETS
+    )
+    if unsupported_quotes:
+        raise RuntimeError(
+            "遇到错误：计算仅合约域美元稳定币等值成交额，返回内容："
+            f"存在不能直接合并的计价资产 {', '.join(unsupported_quotes)}"
+        )
     items: list[dict[str, Any]] = []
 
     for contract in futures_only:
