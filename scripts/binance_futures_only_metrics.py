@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
-"""统计 Binance 仅合约域币对数量、24 小时成交额和选中占比。"""
+"""统计 Binance 仅合约域币对数量、完整日成交额和选中占比。"""
 
 from __future__ import annotations
 
 import argparse
+import csv
+import io
 import json
 import sys
-from datetime import datetime, timezone
+import zipfile
+from datetime import date, datetime, time, timedelta, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
 try:
     import requests
@@ -27,10 +31,17 @@ except ModuleNotFoundError as exc:
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent if SCRIPT_DIR.name in {"work", "scripts"} else SCRIPT_DIR
 DEFAULT_PROXY = "http://127.0.0.1:7897"
-DEFAULT_TIMEOUT = 25
+DEFAULT_TIMEOUT = 45
+ARCHIVE_LOOKBACK_DAYS = 7
 SPOT_EXCHANGE_INFO_URL = "https://data-api.binance.vision/api/v3/exchangeInfo"
-FUTURES_EXCHANGE_INFO_URL = "https://fapi.binance.com/fapi/v1/exchangeInfo"
-FUTURES_24HR_TICKER_URL = "https://fapi.binance.com/fapi/v1/ticker/24hr"
+FUTURES_EXCHANGE_INFO_URLS = (
+    "https://fapi.binance.com/fapi/v1/exchangeInfo",
+    "https://www.binance.com/fapi/v1/exchangeInfo",
+)
+FUTURES_ARCHIVE_TEMPLATE = (
+    "https://data.binance.vision/data/futures/um/daily/klines/"
+    "{symbol}/1d/{symbol}-1d-{volume_date}.zip"
+)
 MULTIPLIER_PREFIXES = ("10000000", "1000000", "100000", "10000", "1000")
 
 
@@ -52,8 +63,8 @@ def build_session(proxy: str | None) -> requests.Session:
     session.mount("http://", adapter)
     session.headers.update(
         {
-            "User-Agent": "BinanceFuturesOnlyMetrics/1.0",
-            "Accept": "application/json",
+            "User-Agent": "BinanceFuturesOnlyMetrics/2.0",
+            "Accept": "application/json, application/zip",
         }
     )
     if proxy:
@@ -86,26 +97,38 @@ def fetch_market_json(session: requests.Session, url: str) -> dict[str, Any] | l
     return payload
 
 
-def fetch_market_data(
+def fetch_market_structure(
     proxy: str | None, no_proxy: bool
-) -> tuple[dict[str, Any], dict[str, Any], list[Any], str | None]:
+) -> tuple[dict[str, Any], dict[str, Any], requests.Session, str | None, str]:
     errors: list[str] = []
     for candidate in proxy_candidates(proxy, no_proxy):
         mode = f"代理 {candidate}" if candidate else "直连"
         session = build_session(candidate)
         try:
             spot = fetch_market_json(session, SPOT_EXCHANGE_INFO_URL)
-            futures = fetch_market_json(session, FUTURES_EXCHANGE_INFO_URL)
-            tickers = fetch_market_json(session, FUTURES_24HR_TICKER_URL)
-            if not isinstance(spot, dict) or not isinstance(futures, dict) or not isinstance(tickers, list):
-                raise RuntimeError("遇到错误：解析 Binance 市场数据，返回内容：接口根节点类型不正确")
-            return spot, futures, tickers, candidate
+            if not isinstance(spot, dict):
+                raise RuntimeError("遇到错误：解析 Binance 现货交易规则，返回内容：根节点不是对象")
         except RuntimeError as exc:
             errors.append(f"{mode}失败：{exc}")
+            continue
+
+        futures_errors: list[str] = []
+        for futures_url in FUTURES_EXCHANGE_INFO_URLS:
+            try:
+                futures = fetch_market_json(session, futures_url)
+                if not isinstance(futures, dict):
+                    raise RuntimeError(
+                        "遇到错误：解析 Binance 合约交易规则，返回内容：根节点不是对象"
+                    )
+                return spot, futures, session, candidate, futures_url
+            except RuntimeError as exc:
+                futures_errors.append(str(exc))
+        errors.append(f"{mode}失败：" + "；".join(futures_errors))
+
     raise RuntimeError(
-        "遇到错误：Binance 仅合约域统计抓取失败，返回内容：\n"
+        "遇到错误：Binance 仅合约域交易规则抓取失败，返回内容：\n"
         + "\n".join(errors)
-        + "\n请检查：1. 代理软件是否打开；2. 官方现货和合约行情接口是否可访问。"
+        + "\n请检查：1. 代理软件是否打开；2. 官方现货和合约交易规则接口是否可访问。"
     )
 
 
@@ -144,22 +167,22 @@ def active_spot_pairs(payload: dict[str, Any]) -> set[tuple[str, str]]:
 def spot_equivalent_base(base_asset: str, quote_asset: str, spot_pairs: set[tuple[str, str]]) -> str:
     """识别 1000PEPE 这类仅在合约代码中带倍率前缀的现货资产。"""
     base = base_asset.upper()
-    quote = quote_asset.upper()
-    if (base, quote) in spot_pairs:
+    quote_asset = quote_asset.upper()
+    if (base, quote_asset) in spot_pairs:
         return base
     for prefix in MULTIPLIER_PREFIXES:
         if base.startswith(prefix) and len(base) > len(prefix):
             candidate = base[len(prefix) :]
-            if (candidate, quote) in spot_pairs:
+            if (candidate, quote_asset) in spot_pairs:
                 return candidate
     return ""
 
 
-def active_perpetuals(payload: dict[str, Any]) -> list[dict[str, str]]:
+def active_perpetuals(payload: dict[str, Any]) -> list[dict[str, Any]]:
     symbols = payload.get("symbols")
     if not isinstance(symbols, list):
         raise RuntimeError("遇到错误：解析合约交易规则，返回内容：symbols 不是列表")
-    result: list[dict[str, str]] = []
+    result: list[dict[str, Any]] = []
     for item in symbols:
         if not isinstance(item, dict):
             continue
@@ -168,32 +191,141 @@ def active_perpetuals(payload: dict[str, Any]) -> list[dict[str, str]]:
         symbol = str(item.get("symbol") or "").upper()
         base_asset = str(item.get("baseAsset") or "").upper()
         quote_asset = str(item.get("quoteAsset") or "").upper()
+        try:
+            onboard_date = int(item.get("onboardDate") or 0)
+        except (TypeError, ValueError):
+            onboard_date = 0
         if symbol and base_asset and quote_asset:
             result.append(
-                {"symbol": symbol, "base_asset": base_asset, "quote_asset": quote_asset}
+                {
+                    "symbol": symbol,
+                    "base_asset": base_asset,
+                    "quote_asset": quote_asset,
+                    "onboard_date": onboard_date,
+                }
             )
     return result
 
 
-def ticker_volumes(payload: list[Any]) -> dict[str, Decimal]:
-    result: dict[str, Decimal] = {}
-    for item in payload:
-        if not isinstance(item, dict) or not item.get("symbol"):
-            continue
-        symbol = str(item["symbol"]).upper()
-        raw_volume = item.get("quoteVolume")
+def futures_only_contracts(
+    spot_payload: dict[str, Any], futures_payload: dict[str, Any]
+) -> tuple[set[tuple[str, str]], list[dict[str, Any]], list[dict[str, Any]]]:
+    spot_pairs = active_spot_pairs(spot_payload)
+    perpetuals = active_perpetuals(futures_payload)
+    futures_only = [
+        contract
+        for contract in perpetuals
+        if not spot_equivalent_base(
+            contract["base_asset"], contract["quote_asset"], spot_pairs
+        )
+    ]
+    return spot_pairs, perpetuals, futures_only
+
+
+def archive_url(symbol: str, volume_date: date) -> str:
+    safe_symbol = quote(symbol.upper(), safe="")
+    return FUTURES_ARCHIVE_TEMPLATE.format(
+        symbol=safe_symbol, volume_date=volume_date.isoformat()
+    )
+
+
+def fetch_archive_content(
+    session: requests.Session, symbol: str, volume_date: date
+) -> bytes | None:
+    url = archive_url(symbol, volume_date)
+    try:
+        response = session.get(url, timeout=DEFAULT_TIMEOUT)
+        if response.status_code == 404:
+            return None
+        response.raise_for_status()
+    except requests.RequestException as exc:
+        raise RuntimeError(f"遇到错误：请求 Binance 官方日线归档 {url}，返回内容：{exc}") from exc
+    return response.content
+
+
+def parse_archive_quote_volume(content: bytes, symbol: str, volume_date: date) -> Decimal:
+    try:
+        with zipfile.ZipFile(io.BytesIO(content)) as archive:
+            names = [name for name in archive.namelist() if not name.endswith("/")]
+            if len(names) != 1:
+                raise ValueError(f"ZIP 文件数量不是 1，而是 {len(names)}")
+            text = archive.read(names[0]).decode("utf-8-sig")
+    except (OSError, UnicodeError, zipfile.BadZipFile, KeyError, ValueError) as exc:
+        raise RuntimeError(
+            f"遇到错误：解析 {symbol} {volume_date.isoformat()} 日线归档，返回内容：{exc}"
+        ) from exc
+
+    rows = list(csv.reader(io.StringIO(text)))
+    if rows and rows[0] and rows[0][0] == "open_time":
+        rows = rows[1:]
+    if not rows:
+        raise RuntimeError(
+            f"遇到错误：解析 {symbol} {volume_date.isoformat()} 日线归档，返回内容：CSV 没有数据行"
+        )
+
+    total = Decimal("0")
+    for row in rows:
+        if len(row) < 8:
+            raise RuntimeError(
+                f"遇到错误：解析 {symbol} {volume_date.isoformat()} 日线归档，返回内容：CSV 列数不足"
+            )
         try:
-            volume = Decimal(str(raw_volume))
+            volume = Decimal(row[7])
         except (InvalidOperation, TypeError) as exc:
             raise RuntimeError(
-                f"遇到错误：解析 {symbol} 24 小时成交额，返回内容：quoteVolume={raw_volume}"
+                f"遇到错误：解析 {symbol} {volume_date.isoformat()} 日线成交额，"
+                f"返回内容：quote_volume={row[7]}"
             ) from exc
         if not volume.is_finite() or volume < 0:
             raise RuntimeError(
-                f"遇到错误：解析 {symbol} 24 小时成交额，返回内容：数值无效 {raw_volume}"
+                f"遇到错误：解析 {symbol} {volume_date.isoformat()} 日线成交额，"
+                f"返回内容：数值无效 {row[7]}"
             )
-        result[symbol] = volume
-    return result
+        total += volume
+    return total
+
+
+def latest_archive_date(session: requests.Session, today: date | None = None) -> date:
+    reference = today or datetime.now(timezone.utc).date()
+    checked: list[str] = []
+    for days_back in range(1, ARCHIVE_LOOKBACK_DAYS + 1):
+        candidate = reference - timedelta(days=days_back)
+        content = fetch_archive_content(session, "BTCUSDT", candidate)
+        checked.append(candidate.isoformat())
+        if content is None:
+            continue
+        parse_archive_quote_volume(content, "BTCUSDT", candidate)
+        return candidate
+    raise RuntimeError(
+        "遇到错误：查找 Binance 最近完整日线归档，返回内容："
+        f"最近 {ARCHIVE_LOOKBACK_DAYS} 天均不存在，已检查 {', '.join(checked)}"
+    )
+
+
+def archive_quote_volumes(
+    session: requests.Session,
+    contracts: list[dict[str, Any]],
+    volume_date: date,
+) -> dict[str, Decimal]:
+    start = datetime.combine(volume_date, time.min, tzinfo=timezone.utc)
+    end_ms = int((start + timedelta(days=1)).timestamp() * 1000) - 1
+    volumes: dict[str, Decimal] = {}
+    total = len(contracts)
+    for index, contract in enumerate(contracts, start=1):
+        symbol = contract["symbol"]
+        content = fetch_archive_content(session, symbol, volume_date)
+        if content is None:
+            if contract.get("onboard_date", 0) > end_ms:
+                volumes[symbol] = Decimal("0")
+                continue
+            raise RuntimeError(
+                f"遇到错误：读取 {symbol} {volume_date.isoformat()} 日线归档，"
+                "返回内容：文件不存在，但合约在该日结束前已经上线"
+            )
+        volumes[symbol] = parse_archive_quote_volume(content, symbol, volume_date)
+        if index % 25 == 0 or index == total:
+            print(f"进度：已读取 {index}/{total} 个仅合约域币对日线归档")
+    return volumes
 
 
 def decimal_text(value: Decimal) -> str:
@@ -204,32 +336,34 @@ def decimal_text(value: Decimal) -> str:
 def build_metrics_payload(
     spot_payload: dict[str, Any],
     futures_payload: dict[str, Any],
-    ticker_payload: list[Any],
+    volumes: dict[str, Decimal],
     selected_symbols: set[str],
+    volume_date: date,
+    futures_source_url: str = FUTURES_EXCHANGE_INFO_URLS[0],
 ) -> dict[str, Any]:
-    spot_pairs = active_spot_pairs(spot_payload)
-    perpetuals = active_perpetuals(futures_payload)
-    volumes = ticker_volumes(ticker_payload)
+    spot_pairs, perpetuals, contracts = futures_only_contracts(
+        spot_payload, futures_payload
+    )
     items: list[dict[str, Any]] = []
 
-    for contract in perpetuals:
+    for contract in contracts:
         symbol = contract["symbol"]
-        base_asset = contract["base_asset"]
-        quote_asset = contract["quote_asset"]
-        spot_base = spot_equivalent_base(base_asset, quote_asset, spot_pairs)
-        if spot_base:
-            continue
         if symbol not in volumes:
             raise RuntimeError(
-                f"遇到错误：计算仅合约域成交额，返回内容：{symbol} 缺少 24 小时 ticker"
+                f"遇到错误：计算仅合约域成交额，返回内容：{symbol} 缺少完整日成交额"
             )
         volume = volumes[symbol]
+        if not volume.is_finite() or volume < 0:
+            raise RuntimeError(
+                f"遇到错误：计算 {symbol} 完整日成交额，返回内容：数值无效 {volume}"
+            )
         items.append(
             {
                 "symbol": symbol,
-                "base_asset": base_asset,
-                "quote_asset": quote_asset,
+                "base_asset": contract["base_asset"],
+                "quote_asset": contract["quote_asset"],
                 "quote_volume_24h": decimal_text(volume),
+                "volume_date": volume_date.isoformat(),
                 "selected": symbol in selected_symbols,
                 "trade_url": f"https://www.binance.com/en/futures/{symbol}",
             }
@@ -242,22 +376,27 @@ def build_metrics_payload(
         (Decimal(item["quote_volume_24h"]) for item in selected_items), Decimal("0")
     )
     share = Decimal("0") if total_volume == 0 else selected_volume / total_volume * Decimal("100")
+    period_start = datetime.combine(volume_date, time.min, tzinfo=timezone.utc)
+    period_end = period_start + timedelta(days=1)
 
     return {
-        "schema_version": "1.0",
+        "schema_version": "2.0",
         "data_type": "binance_futures_only_metrics",
         "status": "ready",
         "public_read_only": True,
         "timezone": "Asia/Shanghai",
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
-        "window": "rolling_24h",
+        "window": "latest_complete_utc_day",
+        "volume_date": volume_date.isoformat(),
+        "period_start": period_start.isoformat().replace("+00:00", "Z"),
+        "period_end": period_end.isoformat().replace("+00:00", "Z"),
         "volume_unit": "USD stablecoin quote-asset equivalent",
         "definition": "当前交易中的 USDⓈ-M 永续合约，且相同基础资产和计价资产没有 Binance 现货交易对。",
         "selected_rule": "data/contracts.json 中收录的合约代码与仅合约域币对的交集。",
         "sources": {
             "spot_exchange_info": SPOT_EXCHANGE_INFO_URL,
-            "futures_exchange_info": FUTURES_EXCHANGE_INFO_URL,
-            "futures_24h_ticker": FUTURES_24HR_TICKER_URL,
+            "futures_exchange_info": futures_source_url,
+            "daily_kline_archive": FUTURES_ARCHIVE_TEMPLATE,
         },
         "summary": {
             "futures_only_pair_count": len(items),
@@ -279,7 +418,7 @@ def write_json(path: Path, payload: dict[str, Any]) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="统计 Binance 仅合约域币对和 24 小时成交额。")
+    parser = argparse.ArgumentParser(description="统计 Binance 仅合约域币对和完整日成交额。")
     parser.add_argument("--proxy", default=DEFAULT_PROXY, help=f"代理地址，默认 {DEFAULT_PROXY}")
     parser.add_argument("--no-proxy", action="store_true", help="不走代理，只用直连")
     parser.add_argument(
@@ -297,8 +436,15 @@ def main() -> int:
 
     try:
         selected = selected_contract_symbols(resolve_path(args.contracts_json))
-        spot, futures, tickers, active_proxy = fetch_market_data(args.proxy, args.no_proxy)
-        payload = build_metrics_payload(spot, futures, tickers, selected)
+        spot, futures, session, active_proxy, futures_source = fetch_market_structure(
+            args.proxy, args.no_proxy
+        )
+        _, _, contracts = futures_only_contracts(spot, futures)
+        volume_date = latest_archive_date(session)
+        volumes = archive_quote_volumes(session, contracts, volume_date)
+        payload = build_metrics_payload(
+            spot, futures, volumes, selected, volume_date, futures_source
+        )
         json_path = resolve_path(args.json)
         write_json(json_path, payload)
         public_path = resolve_path(args.public_json) if args.public_json else None
@@ -310,9 +456,12 @@ def main() -> int:
 
     summary = payload["summary"]
     print(f"完成：监控 {summary['futures_only_pair_count']} 个 Binance 仅合约域币对")
-    print(f"仅合约域 24 小时成交额：{summary['futures_only_quote_volume_24h']}")
     print(
-        "选中币对 24 小时成交额："
+        f"{payload['volume_date']} 完整日成交额："
+        f"{summary['futures_only_quote_volume_24h']}"
+    )
+    print(
+        "选中币对完整日成交额："
         f"{summary['selected_futures_only_quote_volume_24h']}，"
         f"占比 {summary['selected_volume_share_percent']}%"
     )
@@ -320,7 +469,7 @@ def main() -> int:
     if public_path:
         print(f"公开 JSON：{public_path}")
     print(f"请求方式：{'代理 ' + active_proxy if active_proxy else '直连'}")
-    print("数据来源：Binance 官方 Spot / USDⓈ-M Futures 公共市场数据 API")
+    print("数据来源：Binance 官方 Spot / USDⓈ-M Futures 规则与日线归档")
     return 0
 
 

@@ -1,18 +1,21 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "data_type": "binance_futures_only_metrics",
   "status": "pending_first_sync",
   "public_read_only": true,
   "timezone": "Asia/Shanghai",
   "generated_at": "",
-  "window": "rolling_24h",
+  "window": "latest_complete_utc_day",
+  "volume_date": "",
+  "period_start": "",
+  "period_end": "",
   "volume_unit": "USD stablecoin quote-asset equivalent",
   "definition": "当前交易中的 USDⓈ-M 永续合约，且相同基础资产和计价资产没有 Binance 现货交易对。",
   "selected_rule": "data/contracts.json 中收录的合约代码与仅合约域币对的交集。",
   "sources": {
     "spot_exchange_info": "https://data-api.binance.vision/api/v3/exchangeInfo",
     "futures_exchange_info": "https://fapi.binance.com/fapi/v1/exchangeInfo",
-    "futures_24h_ticker": "https://fapi.binance.com/fapi/v1/ticker/24hr"
+    "daily_kline_archive": "https://data.binance.vision/data/futures/um/daily/klines/{symbol}/1d/{symbol}-1d-{volume_date}.zip"
   },
   "summary": {
     "futures_only_pair_count": null,

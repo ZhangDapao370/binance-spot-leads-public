@@ -115,6 +115,8 @@ jobs:
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：status 不是 ready")
           if not metrics_payload.get("public_read_only"):
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：public_read_only 不是 true")
+          if metrics_payload.get("window") != "latest_complete_utc_day" or not metrics_payload.get("volume_date"):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：完整日窗口或成交日期为空")
           metrics = metrics_payload.get("summary")
           metric_items = metrics_payload.get("items")
           if not isinstance(metrics, dict) or not isinstance(metric_items, list):
@@ -134,6 +136,8 @@ jobs:
               raise SystemExit(f"遇到错误：仅合约域数据校验，返回内容：数值字段无效 {exc}") from exc
           if pair_count <= 0 or pair_count != len(metric_items):
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：币对数量为空或与 items 不一致")
+          if any(item.get("volume_date") != metrics_payload["volume_date"] for item in metric_items):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：明细成交日期不一致")
           if total_volume <= 0 or item_volume != total_volume:
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：总成交额为空或与明细合计不一致")
           if selected_count != sum(1 for item in metric_items if item.get("selected")):

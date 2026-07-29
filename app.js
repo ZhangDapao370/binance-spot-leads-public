@@ -172,7 +172,7 @@ function renderDomainMetrics(payload) {
   const pending = payload.status !== "ready";
   const summary = payload.summary || {};
   if (pending) {
-    document.querySelector("#domain-metrics-time").textContent = "等待云端首次真实统计";
+    document.querySelector("#domain-metrics-time").textContent = "等待云端首次完整日统计";
     setMetricValue("#domain-pair-count", "待同步");
     setMetricValue("#domain-volume", "待同步");
     setMetricValue("#selected-domain-volume", "待同步");
@@ -186,7 +186,10 @@ function renderDomainMetrics(payload) {
   const share = Number(summary.selected_volume_share_percent);
   const pairCount = Number(summary.futures_only_pair_count);
   const selectedCount = Number(summary.selected_futures_only_pair_count);
-  document.querySelector("#domain-metrics-time").textContent = `滚动 24 小时 · 统计于 ${formatBeijingTime(payload.generated_at)}`;
+  const volumeWindow = payload.window === "latest_complete_utc_day" && payload.volume_date
+    ? `最近完整 UTC 日 ${payload.volume_date}`
+    : "完整 24 小时";
+  document.querySelector("#domain-metrics-time").textContent = `${volumeWindow} · 发布于 ${formatBeijingTime(payload.generated_at)}`;
   setMetricValue("#domain-pair-count", Number.isInteger(pairCount) ? String(pairCount) : "待同步");
   setMetricValue("#domain-volume", formatUsdVolume(totalVolume), totalVolume);
   setMetricValue("#selected-domain-volume", formatUsdVolume(selectedVolume), selectedVolume);
