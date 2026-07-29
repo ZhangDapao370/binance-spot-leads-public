@@ -177,7 +177,7 @@ function renderDomainMetrics(payload) {
     setMetricValue("#domain-volume", "待同步");
     setMetricValue("#selected-domain-volume", "待同步");
     setMetricValue("#selected-domain-share", "待同步");
-    document.querySelector("#selected-domain-count").textContent = "最近合约公告交集";
+    document.querySelector("#selected-domain-count").textContent = "服务器真实选币交集";
     return;
   }
 
@@ -186,6 +186,9 @@ function renderDomainMetrics(payload) {
   const share = Number(summary.selected_volume_share_percent);
   const pairCount = Number(summary.futures_only_pair_count);
   const selectedCount = Number(summary.selected_futures_only_pair_count);
+  const selectionTime = payload.selection_snapshot?.source_latest_at
+    ? formatBeijingTime(payload.selection_snapshot.source_latest_at)
+    : "";
   const volumeWindow = payload.window === "latest_complete_utc_day" && payload.volume_date
     ? `最近完整 UTC 日 ${payload.volume_date}`
     : "完整 24 小时";
@@ -195,8 +198,8 @@ function renderDomainMetrics(payload) {
   setMetricValue("#selected-domain-volume", formatUsdVolume(selectedVolume), selectedVolume);
   setMetricValue("#selected-domain-share", Number.isFinite(share) ? `${share.toFixed(2)}%` : "待同步");
   document.querySelector("#selected-domain-count").textContent = Number.isInteger(selectedCount)
-    ? `命中 ${selectedCount} 个最近合约公告币对`
-    : "最近合约公告交集";
+    ? `命中 ${selectedCount} 个服务器真实选币${selectionTime ? ` · 快照 ${selectionTime}` : ""}`
+    : "服务器真实选币交集";
 }
 
 function launchValue(item) {
@@ -529,6 +532,9 @@ async function loadMetricsPayload(path) {
   const payload = await response.json();
   if (!payload || payload.data_type !== "binance_futures_only_metrics") {
     throw new Error(`${path} 的 data_type 不正确`);
+  }
+  if (payload.schema_version !== "4.0") {
+    throw new Error(`${path} 的 schema_version 不正确`);
   }
   if (!payload.public_read_only || !["pending_first_sync", "ready"].includes(payload.status)) {
     throw new Error(`${path} 的公开状态不正确`);

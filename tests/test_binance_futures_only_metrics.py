@@ -1,6 +1,8 @@
 import importlib.util
 import io
+import json
 import sys
+import tempfile
 import unittest
 import zipfile
 from datetime import date
@@ -61,13 +63,31 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
             "ONLYUSDT": Decimal("300"),
             "ETHBTC": Decimal("50"),
         }
+        self.selection = {
+            "schema_version": "1.0",
+            "data_type": "binance_strategy_selected_pairs",
+            "status": "ready",
+            "read_only_export": True,
+            "generated_at": "2026-07-27T12:00:00Z",
+            "source_earliest_at": "2026-07-27T19:00:00+08:00",
+            "source_latest_at": "2026-07-27T20:00:00+08:00",
+            "summary": {
+                "selected_pair_count": 2,
+                "source_count": 11,
+                "account_count": 29,
+            },
+            "items": [
+                {"symbol": "NEWUSDT"},
+                {"symbol": "STOCKUSD1"},
+            ],
+        }
 
     def test_calculates_four_required_metrics(self):
         payload = MODULE.build_metrics_payload(
             self.spot,
             self.contracts,
             self.volumes,
-            {"NEWUSDT", "STOCKUSD1"},
+            self.selection,
             date(2026, 7, 27),
         )
         summary = payload["summary"]
@@ -80,8 +100,11 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
         self.assertEqual(payload["status"], "ready")
         self.assertEqual(payload["window"], "latest_complete_utc_day")
         self.assertEqual(payload["volume_date"], "2026-07-27")
-        self.assertEqual(payload["schema_version"], "3.0")
+        self.assertEqual(payload["schema_version"], "4.0")
         self.assertTrue(payload["public_read_only"])
+        self.assertEqual(summary["strategy_selected_pair_count"], 2)
+        self.assertEqual(payload["selection_snapshot"]["account_count"], 29)
+        self.assertTrue(all("selected" not in item for item in payload["items"]))
 
     def test_multiplier_contract_matches_spot_asset(self):
         spot_pairs = {("PEPE", "USDT")}
@@ -105,7 +128,7 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
                 self.spot,
                 self.contracts,
                 {key: value for key, value in self.volumes.items() if key != "ONLYUSDT"},
-                {"NEWUSDT"},
+                self.selection,
                 date(2026, 7, 27),
             )
 
@@ -117,9 +140,29 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
                 self.spot,
                 self.contracts,
                 invalid,
-                {"NEWUSDT"},
+                self.selection,
                 date(2026, 7, 27),
             )
+
+    def test_reads_valid_private_selection_snapshot(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "selected.json"
+            path.write_text(json.dumps(self.selection), encoding="utf-8")
+            payload = MODULE.selected_pair_snapshot(path)
+        self.assertEqual(
+            MODULE.selected_pair_symbols(payload),
+            {"NEWUSDT", "STOCKUSD1"},
+        )
+
+    def test_rejects_inconsistent_private_selection_snapshot(self):
+        invalid = dict(self.selection)
+        invalid["summary"] = dict(self.selection["summary"])
+        invalid["summary"]["selected_pair_count"] = 99
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "selected.json"
+            path.write_text(json.dumps(invalid), encoding="utf-8")
+            with self.assertRaisesRegex(RuntimeError, "summary 与明细不一致"):
+                MODULE.selected_pair_snapshot(path)
 
     def test_parses_official_daily_archive_quote_volume(self):
         csv_text = (

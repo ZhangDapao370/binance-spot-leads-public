@@ -19,11 +19,11 @@
 - 时间在 JSON 中使用 UTC，在网页上转换为北京时间。
 - 永续合约页同时展示仅合约域币对数量、最近完整 UTC 日成交额、我们选中的成交额和占比。
 
-“仅合约域”指目标完整 UTC 日存在 Binance USDⓈ-M 永续日线归档，但当前没有相同基础资产和计价资产的现货交易对；带日期后缀的交割合约不计入。“我们选中的”指最近 60 条合约公告代码与该集合的交集。页面和 JSON 会明确显示 `volume_date`。
+“仅合约域”指目标完整 UTC 日存在 Binance USDⓈ-M 永续日线归档，但当前没有相同基础资产和计价资产的现货交易对；带日期后缀的交割合约不计入。“我们选中的”来自服务器全部已配置账户对应选币源的最新非零权重币对并集。页面和 JSON 会明确显示 `volume_date` 与选币快照时间。
 
 ## AI 数据
 
-`data/listings.json`、`data/contracts.json` 和 `data/futures_only_metrics.json` 是稳定的公开只读接口。前两者的记录在 `items`，成交概览在指标 JSON 的 `summary`，币对明细在 `items`。AI 不应尝试修改文件，也不应把 Seed Tag、永续合约上线或成交量解读成投资建议。
+`data/listings.json`、`data/contracts.json` 和 `data/futures_only_metrics.json` 是稳定的公开只读接口。前两者的记录在 `items`，成交概览在指标 JSON 的 `summary`。真实选币名单只参与云端临时计算；公开指标明细不含 `selected` 标记，AI 不应尝试推断内部名单或给出投资建议。
 
 ## 自动更新
 

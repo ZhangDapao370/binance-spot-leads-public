@@ -122,20 +122,76 @@ def fetch_spot_structure(
     )
 
 
-def selected_contract_symbols(path: Path) -> set[str]:
+def selected_pair_snapshot(path: Path) -> dict[str, Any]:
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
     except OSError as exc:
-        raise RuntimeError(f"遇到错误：读取选中合约 {path}，返回内容：{exc}") from exc
+        raise RuntimeError(f"遇到错误：读取服务器真实选币名单 {path}，返回内容：{exc}") from exc
     except json.JSONDecodeError as exc:
-        raise RuntimeError(f"遇到错误：解析选中合约 {path}，返回内容：{exc}") from exc
+        raise RuntimeError(f"遇到错误：解析服务器真实选币名单 {path}，返回内容：{exc}") from exc
+    if not isinstance(payload, dict):
+        raise RuntimeError(
+            f"遇到错误：解析服务器真实选币名单 {path}，返回内容：根节点不是对象"
+        )
+    if payload.get("data_type") != "binance_strategy_selected_pairs":
+        raise RuntimeError(
+            f"遇到错误：解析服务器真实选币名单 {path}，返回内容：data_type 不正确"
+        )
+    if payload.get("schema_version") != "1.0" or payload.get("status") != "ready":
+        raise RuntimeError(
+            f"遇到错误：解析服务器真实选币名单 {path}，返回内容：版本或状态不正确"
+        )
+    if payload.get("read_only_export") is not True:
+        raise RuntimeError(
+            f"遇到错误：解析服务器真实选币名单 {path}，返回内容：不是只读导出"
+        )
     items = payload.get("items") if isinstance(payload, dict) else None
     if not isinstance(items, list):
-        raise RuntimeError(f"遇到错误：解析选中合约 {path}，返回内容：items 不是列表")
-    return {
-        str(item.get("contract_symbol") or "").upper()
+        raise RuntimeError(
+            f"遇到错误：解析服务器真实选币名单 {path}，返回内容：items 不是列表"
+        )
+    symbols = [
+        str(item.get("symbol") or "").strip().upper()
         for item in items
-        if isinstance(item, dict) and item.get("contract_symbol")
+        if isinstance(item, dict) and item.get("symbol")
+    ]
+    if not symbols or len(symbols) != len(items) or len(set(symbols)) != len(symbols):
+        raise RuntimeError(
+            f"遇到错误：解析服务器真实选币名单 {path}，返回内容：币对为空、重复或字段缺失"
+        )
+    summary = payload.get("summary")
+    if (
+        not isinstance(summary, dict)
+        or summary.get("selected_pair_count") != len(symbols)
+        or not isinstance(summary.get("source_count"), int)
+        or summary.get("source_count", 0) <= 0
+        or not isinstance(summary.get("account_count"), int)
+        or summary.get("account_count", 0) <= 0
+    ):
+        raise RuntimeError(
+            f"遇到错误：解析服务器真实选币名单 {path}，返回内容：summary 与明细不一致"
+        )
+    for field in ("generated_at", "source_earliest_at", "source_latest_at"):
+        try:
+            timestamp = datetime.fromisoformat(
+                str(payload.get(field) or "").replace("Z", "+00:00")
+            )
+        except ValueError as exc:
+            raise RuntimeError(
+                f"遇到错误：解析服务器真实选币名单 {path}，返回内容：{field} 时间无效"
+            ) from exc
+        if timestamp.tzinfo is None:
+            raise RuntimeError(
+                f"遇到错误：解析服务器真实选币名单 {path}，返回内容：{field} 缺少时区"
+            )
+    return payload
+
+
+def selected_pair_symbols(payload: dict[str, Any]) -> set[str]:
+    return {
+        str(item["symbol"]).strip().upper()
+        for item in payload["items"]
+        if isinstance(item, dict) and item.get("symbol")
     }
 
 
@@ -378,9 +434,10 @@ def build_metrics_payload(
     spot_payload: dict[str, Any],
     contracts: list[dict[str, str]],
     volumes: dict[str, Decimal],
-    selected_symbols: set[str],
+    selection_snapshot: dict[str, Any],
     volume_date: date,
 ) -> dict[str, Any]:
+    selected_symbols = selected_pair_symbols(selection_snapshot)
     spot_pairs = active_spot_pairs(spot_payload)
     futures_only = [
         contract
@@ -418,14 +475,13 @@ def build_metrics_payload(
                 "quote_asset": contract["quote_asset"],
                 "quote_volume_24h": decimal_text(volume),
                 "volume_date": volume_date.isoformat(),
-                "selected": symbol in selected_symbols,
                 "trade_url": f"https://www.binance.com/en/futures/{symbol}",
             }
         )
 
     items.sort(key=lambda item: Decimal(item["quote_volume_24h"]), reverse=True)
     total_volume = sum((Decimal(item["quote_volume_24h"]) for item in items), Decimal("0"))
-    selected_items = [item for item in items if item["selected"]]
+    selected_items = [item for item in items if item["symbol"] in selected_symbols]
     selected_volume = sum(
         (Decimal(item["quote_volume_24h"]) for item in selected_items), Decimal("0")
     )
@@ -434,7 +490,7 @@ def build_metrics_payload(
     period_end = period_start + timedelta(days=1)
 
     return {
-        "schema_version": "3.0",
+        "schema_version": "4.0",
         "data_type": "binance_futures_only_metrics",
         "status": "ready",
         "public_read_only": True,
@@ -446,8 +502,17 @@ def build_metrics_payload(
         "period_end": period_end.isoformat().replace("+00:00", "Z"),
         "volume_unit": "USD stablecoin quote-asset equivalent",
         "definition": "在目标完整 UTC 日有 Binance USDⓈ-M 永续归档，且当前没有相同基础资产和计价资产的 Binance 现货交易对。",
-        "selected_rule": "data/contracts.json 中收录的合约代码与仅合约域币对的交集。",
+        "selected_rule": "服务器全部已配置账户对应选币源的最新非零权重币对并集，与仅合约域币对取交集。",
+        "selection_privacy": "真实选币名单仅用于云端临时计算；公开 JSON 不保存名单，也不给明细添加选中标记。",
         "snapshot_rule": "币对数量和成交额均以 volume_date 的 Binance 官方 1d 归档为准，交割合约目录除外。",
+        "selection_snapshot": {
+            "generated_at": selection_snapshot["generated_at"],
+            "source_earliest_at": selection_snapshot["source_earliest_at"],
+            "source_latest_at": selection_snapshot["source_latest_at"],
+            "selected_pair_count": selection_snapshot["summary"]["selected_pair_count"],
+            "source_count": selection_snapshot["summary"]["source_count"],
+            "account_count": selection_snapshot["summary"]["account_count"],
+        },
         "sources": {
             "spot_exchange_info": SPOT_EXCHANGE_INFO_URL,
             "futures_archive_directory": ARCHIVE_BUCKET_URL,
@@ -461,7 +526,7 @@ def build_metrics_payload(
             "selected_volume_share_percent": decimal_text(share.quantize(Decimal("0.000001"))),
             "active_perpetual_pair_count": len(contracts),
             "active_spot_pair_count": len(spot_pairs),
-            "selected_contract_input_count": len(selected_symbols),
+            "strategy_selected_pair_count": len(selected_symbols),
         },
         "items": items,
     }
@@ -477,9 +542,9 @@ def main() -> int:
     parser.add_argument("--proxy", default=DEFAULT_PROXY, help=f"代理地址，默认 {DEFAULT_PROXY}")
     parser.add_argument("--no-proxy", action="store_true", help="不走代理，只用直连")
     parser.add_argument(
-        "--contracts-json",
-        default="binance_public_site/data/contracts.json",
-        help="作为我们选中范围的永续合约 JSON",
+        "--selected-pairs-json",
+        default="outputs/binance_selected_pairs.json",
+        help="服务器只读导出的真实选币名单 JSON",
     )
     parser.add_argument(
         "--json",
@@ -490,7 +555,9 @@ def main() -> int:
     args = parser.parse_args()
 
     try:
-        selected = selected_contract_symbols(resolve_path(args.contracts_json))
+        selection_snapshot = selected_pair_snapshot(
+            resolve_path(args.selected_pairs_json)
+        )
         spot, session, active_proxy = fetch_spot_structure(args.proxy, args.no_proxy)
         volume_date = latest_archive_date(session)
         archive_symbols = list_archive_symbols(session)
@@ -498,7 +565,7 @@ def main() -> int:
             archive_symbols, volume_date, active_proxy
         )
         payload = build_metrics_payload(
-            spot, contracts, volumes, selected, volume_date
+            spot, contracts, volumes, selection_snapshot, volume_date
         )
         json_path = resolve_path(args.json)
         write_json(json_path, payload)

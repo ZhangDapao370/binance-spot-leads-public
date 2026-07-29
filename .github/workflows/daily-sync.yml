@@ -32,6 +32,58 @@ jobs:
       - name: 运行解析测试
         run: python -m unittest discover -s tests -p 'test_*.py' -v
 
+      - name: 读取服务器真实选币名单
+        env:
+          SELECTION_SSH_HOST: ${{ secrets.SELECTION_SSH_HOST }}
+          SELECTION_SSH_USER: ${{ secrets.SELECTION_SSH_USER }}
+          SELECTION_SSH_KEY: ${{ secrets.SELECTION_SSH_KEY }}
+          SELECTION_SSH_KNOWN_HOSTS: ${{ secrets.SELECTION_SSH_KNOWN_HOSTS }}
+        run: |
+          if [ -z "$SELECTION_SSH_HOST" ] || [ -z "$SELECTION_SSH_USER" ] || [ -z "$SELECTION_SSH_KEY" ] || [ -z "$SELECTION_SSH_KNOWN_HOSTS" ]; then
+            echo "遇到错误：读取服务器真实选币名单，返回内容：GitHub Actions Secrets 配置不完整"
+            exit 1
+          fi
+          install -d -m 700 "$HOME/.ssh"
+          printf '%s\n' "$SELECTION_SSH_KEY" > "$HOME/.ssh/binance_selection_readonly"
+          chmod 600 "$HOME/.ssh/binance_selection_readonly"
+          printf '%s\n' "$SELECTION_SSH_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+          ssh \
+            -i "$HOME/.ssh/binance_selection_readonly" \
+            -o BatchMode=yes \
+            -o ConnectTimeout=20 \
+            -o IdentitiesOnly=yes \
+            -o ServerAliveCountMax=2 \
+            -o ServerAliveInterval=15 \
+            -o StrictHostKeyChecking=yes \
+            "$SELECTION_SSH_USER@$SELECTION_SSH_HOST" \
+            > /tmp/binance_selected_pairs.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path("/tmp/binance_selected_pairs.json").read_text(encoding="utf-8"))
+          items = payload.get("items")
+          summary = payload.get("summary")
+          if payload.get("data_type") != "binance_strategy_selected_pairs":
+              raise SystemExit("遇到错误：真实选币名单校验，返回内容：data_type 不正确")
+          if payload.get("schema_version") != "1.0" or payload.get("status") != "ready":
+              raise SystemExit("遇到错误：真实选币名单校验，返回内容：版本或状态不正确")
+          if payload.get("read_only_export") is not True:
+              raise SystemExit("遇到错误：真实选币名单校验，返回内容：不是只读导出")
+          if not isinstance(items, list) or not isinstance(summary, dict):
+              raise SystemExit("遇到错误：真实选币名单校验，返回内容：summary 或 items 结构不正确")
+          symbols = [item.get("symbol") for item in items if isinstance(item, dict)]
+          if not symbols or len(symbols) != len(items) or len(set(symbols)) != len(symbols):
+              raise SystemExit("遇到错误：真实选币名单校验，返回内容：币对为空、重复或字段缺失")
+          if summary.get("selected_pair_count") != len(symbols):
+              raise SystemExit("遇到错误：真实选币名单校验，返回内容：数量与明细不一致")
+          print(
+              f"完成：读取服务器真实选币名单，共 {len(symbols)} 个币对，"
+              f"{summary.get('source_count')} 个选币源，{summary.get('account_count')} 个账户"
+          )
+          PY
+
       - name: 抓取 Binance 官方现货公告
         run: |
           python scripts/binance_spot_listing_monitor.py \
@@ -63,7 +115,7 @@ jobs:
         run: |
           python scripts/binance_futures_only_metrics.py \
             --no-proxy \
-            --contracts-json data/contracts.json \
+            --selected-pairs-json /tmp/binance_selected_pairs.json \
             --json /tmp/binance_futures_only_metrics.json \
             --public-json data/futures_only_metrics.json
 
@@ -111,8 +163,8 @@ jobs:
           metrics_payload = json.loads(Path("data/futures_only_metrics.json").read_text(encoding="utf-8"))
           if metrics_payload.get("data_type") != "binance_futures_only_metrics":
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：data_type 不正确")
-          if metrics_payload.get("schema_version") != "3.0":
-              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：schema_version 不是 3.0")
+          if metrics_payload.get("schema_version") != "4.0":
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：schema_version 不是 4.0")
           if metrics_payload.get("status") != "ready":
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：status 不是 ready")
           if not metrics_payload.get("public_read_only"):
@@ -121,17 +173,27 @@ jobs:
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：完整日窗口或成交日期为空")
           metrics = metrics_payload.get("summary")
           metric_items = metrics_payload.get("items")
-          if not isinstance(metrics, dict) or not isinstance(metric_items, list):
-              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：summary 或 items 结构不正确")
+          selection_snapshot = metrics_payload.get("selection_snapshot")
+          if not isinstance(metrics, dict) or not isinstance(metric_items, list) or not isinstance(selection_snapshot, dict):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：summary、selection_snapshot 或 items 结构不正确")
+          if any("selected" in item for item in metric_items):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：公开明细泄露真实选中标记")
+          private_selection = json.loads(Path("/tmp/binance_selected_pairs.json").read_text(encoding="utf-8"))
+          private_symbols = {
+              item["symbol"]
+              for item in private_selection["items"]
+              if isinstance(item, dict) and item.get("symbol")
+          }
           try:
               pair_count = int(metrics["futures_only_pair_count"])
               selected_count = int(metrics["selected_futures_only_pair_count"])
+              strategy_selected_count = int(metrics["strategy_selected_pair_count"])
               total_volume = Decimal(metrics["futures_only_quote_volume_24h"])
               selected_volume = Decimal(metrics["selected_futures_only_quote_volume_24h"])
               share = Decimal(metrics["selected_volume_share_percent"])
               item_volume = sum((Decimal(item["quote_volume_24h"]) for item in metric_items), Decimal("0"))
               selected_item_volume = sum(
-                  (Decimal(item["quote_volume_24h"]) for item in metric_items if item.get("selected")),
+                  (Decimal(item["quote_volume_24h"]) for item in metric_items if item.get("symbol") in private_symbols),
                   Decimal("0"),
               )
           except (KeyError, TypeError, ValueError, InvalidOperation) as exc:
@@ -142,7 +204,12 @@ jobs:
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：明细成交日期不一致")
           if total_volume <= 0 or item_volume != total_volume:
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：总成交额为空或与明细合计不一致")
-          if selected_count != sum(1 for item in metric_items if item.get("selected")):
+          selected_item_count = sum(1 for item in metric_items if item.get("symbol") in private_symbols)
+          if strategy_selected_count != len(private_symbols):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：真实选币输入数量不一致")
+          if selection_snapshot.get("selected_pair_count") != len(private_symbols):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：选币快照数量不一致")
+          if selected_count != selected_item_count:
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：选中币对数量与明细不一致")
           if selected_volume < 0 or selected_volume > total_volume or selected_item_volume != selected_volume:
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：选中成交额范围或明细合计不正确")
@@ -166,3 +233,9 @@ jobs:
           git add data/listings.json data/listings.csv data/contracts.json data/contracts.csv data/futures_only_metrics.json
           git commit -m "每日更新币安现货、永续合约与成交指标"
           git push
+
+      - name: 清理临时选币凭据
+        if: always()
+        run: |
+          rm -f "$HOME/.ssh/binance_selection_readonly"
+          rm -f /tmp/binance_selected_pairs.json
