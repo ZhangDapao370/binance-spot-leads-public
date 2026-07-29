@@ -4,7 +4,7 @@
   "status": "ready",
   "public_read_only": true,
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-07-29T04:14:23.079410Z",
+  "generated_at": "2026-07-29T04:26:00.653188Z",
   "window": "latest_complete_utc_day",
   "volume_date": "2026-07-27",
   "period_start": "2026-07-27T00:00:00Z",
@@ -15,7 +15,7 @@
   "selection_privacy": "真实选币名单仅用于云端临时计算；公开 JSON 不保存名单，也不给明细添加选中标记。",
   "snapshot_rule": "币对数量和成交额均以 volume_date 的 Binance 官方 1d 归档为准，交割合约目录除外。",
   "selection_snapshot": {
-    "generated_at": "2026-07-29T04:12:29.193836Z",
+    "generated_at": "2026-07-29T04:23:59.085838Z",
     "source_earliest_at": "2026-07-29T09:00:00+08:00",
     "source_latest_at": "2026-07-29T10:00:00+08:00",
     "selected_pair_count": 294,
