@@ -1,5 +1,5 @@
 {
-  "schema_version": "2.0",
+  "schema_version": "3.0",
   "data_type": "binance_futures_only_metrics",
   "status": "pending_first_sync",
   "public_read_only": true,
@@ -10,11 +10,12 @@
   "period_start": "",
   "period_end": "",
   "volume_unit": "USD stablecoin quote-asset equivalent",
-  "definition": "当前交易中的 USDⓈ-M 永续合约，且相同基础资产和计价资产没有 Binance 现货交易对。",
+  "definition": "在目标完整 UTC 日有 Binance USDⓈ-M 永续归档，且当前没有相同基础资产和计价资产的 Binance 现货交易对。",
   "selected_rule": "data/contracts.json 中收录的合约代码与仅合约域币对的交集。",
+  "snapshot_rule": "币对数量和成交额均以 volume_date 的 Binance 官方 1d 归档为准，交割合约目录除外。",
   "sources": {
     "spot_exchange_info": "https://data-api.binance.vision/api/v3/exchangeInfo",
-    "futures_exchange_info": "https://fapi.binance.com/fapi/v1/exchangeInfo",
+    "futures_archive_directory": "https://s3-ap-northeast-1.amazonaws.com/data.binance.vision",
     "daily_kline_archive": "https://data.binance.vision/data/futures/um/daily/klines/{symbol}/1d/{symbol}-1d-{volume_date}.zip"
   },
   "summary": {

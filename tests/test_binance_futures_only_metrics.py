@@ -38,17 +38,13 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
                 },
             ]
         }
-        self.futures = {
-            "symbols": [
-                {"symbol": "BTCUSDT", "status": "TRADING", "contractType": "PERPETUAL", "baseAsset": "BTC", "quoteAsset": "USDT"},
-                {"symbol": "1000PEPEUSDT", "status": "TRADING", "contractType": "PERPETUAL", "baseAsset": "1000PEPE", "quoteAsset": "USDT"},
-                {"symbol": "NEWUSDT", "status": "TRADING", "contractType": "PERPETUAL", "baseAsset": "NEW", "quoteAsset": "USDT"},
-                {"symbol": "STOCKUSD1", "status": "TRADING", "contractType": "PERPETUAL", "baseAsset": "STOCK", "quoteAsset": "USD1"},
-                {"symbol": "ONLYUSDT", "status": "TRADING", "contractType": "PERPETUAL", "baseAsset": "ONLY", "quoteAsset": "USDT"},
-                {"symbol": "OLDUSDT", "status": "CLOSE", "contractType": "PERPETUAL", "baseAsset": "OLD", "quoteAsset": "USDT"},
-                {"symbol": "DELIVERYUSDT", "status": "TRADING", "contractType": "CURRENT_QUARTER", "baseAsset": "DELIVERY", "quoteAsset": "USDT"},
-            ]
-        }
+        self.contracts = [
+            {"symbol": "BTCUSDT", "base_asset": "BTC", "quote_asset": "USDT"},
+            {"symbol": "1000PEPEUSDT", "base_asset": "1000PEPE", "quote_asset": "USDT"},
+            {"symbol": "NEWUSDT", "base_asset": "NEW", "quote_asset": "USDT"},
+            {"symbol": "STOCKUSD1", "base_asset": "STOCK", "quote_asset": "USD1"},
+            {"symbol": "ONLYUSDT", "base_asset": "ONLY", "quote_asset": "USDT"},
+        ]
         self.volumes = {
             "BTCUSDT": Decimal("900"),
             "1000PEPEUSDT": Decimal("800"),
@@ -60,7 +56,7 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
     def test_calculates_four_required_metrics(self):
         payload = MODULE.build_metrics_payload(
             self.spot,
-            self.futures,
+            self.contracts,
             self.volumes,
             {"NEWUSDT", "STOCKUSD1"},
             date(2026, 7, 27),
@@ -75,6 +71,7 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
         self.assertEqual(payload["status"], "ready")
         self.assertEqual(payload["window"], "latest_complete_utc_day")
         self.assertEqual(payload["volume_date"], "2026-07-27")
+        self.assertEqual(payload["schema_version"], "3.0")
         self.assertTrue(payload["public_read_only"])
 
     def test_multiplier_contract_matches_spot_asset(self):
@@ -82,17 +79,20 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
         self.assertEqual(MODULE.spot_equivalent_base("1000PEPE", "USDT", spot_pairs), "PEPE")
         self.assertEqual(MODULE.spot_equivalent_base("1000PEPE", "USDC", spot_pairs), "")
 
-    def test_excludes_non_trading_and_delivery_contracts(self):
-        symbols = MODULE.active_perpetuals(self.futures)
-        names = {item["symbol"] for item in symbols}
-        self.assertNotIn("OLDUSDT", names)
-        self.assertNotIn("DELIVERYUSDT", names)
+    def test_parses_perpetual_archive_symbols_and_excludes_delivery(self):
+        self.assertEqual(
+            MODULE.archive_contract("1000PEPEUSDT"),
+            {"symbol": "1000PEPEUSDT", "base_asset": "1000PEPE", "quote_asset": "USDT"},
+        )
+        self.assertIsNone(MODULE.archive_contract("BTCUSDT_260925"))
+        with self.assertRaisesRegex(RuntimeError, "无法识别计价资产"):
+            MODULE.archive_contract("UNKNOWNPAIR")
 
     def test_rejects_missing_daily_volume_instead_of_publishing_false_zero(self):
         with self.assertRaisesRegex(RuntimeError, "ONLYUSDT 缺少完整日成交额"):
             MODULE.build_metrics_payload(
                 self.spot,
-                self.futures,
+                self.contracts,
                 {key: value for key, value in self.volumes.items() if key != "ONLYUSDT"},
                 {"NEWUSDT"},
                 date(2026, 7, 27),
@@ -104,7 +104,7 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "数值无效 NaN"):
             MODULE.build_metrics_payload(
                 self.spot,
-                self.futures,
+                self.contracts,
                 invalid,
                 {"NEWUSDT"},
                 date(2026, 7, 27),
@@ -126,6 +126,28 @@ class BinanceFuturesOnlyMetricsTest(unittest.TestCase):
 
         with self.assertRaisesRegex(RuntimeError, "日线归档"):
             MODULE.parse_archive_quote_volume(b"not-a-zip", "BADUSDT", date(2026, 7, 27))
+
+    def test_lists_symbols_from_official_archive_xml(self):
+        xml = b"""<?xml version="1.0" encoding="UTF-8"?>
+        <ListBucketResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+          <IsTruncated>false</IsTruncated>
+          <CommonPrefixes><Prefix>data/futures/um/daily/klines/BTCUSDT/</Prefix></CommonPrefixes>
+          <CommonPrefixes><Prefix>data/futures/um/daily/klines/ONLYUSDT/</Prefix></CommonPrefixes>
+        </ListBucketResult>"""
+
+        class Response:
+            content = xml
+
+            @staticmethod
+            def raise_for_status():
+                return None
+
+        class Session:
+            @staticmethod
+            def get(url, params, timeout):
+                return Response()
+
+        self.assertEqual(MODULE.list_archive_symbols(Session()), ["BTCUSDT", "ONLYUSDT"])
 
 
 if __name__ == "__main__":

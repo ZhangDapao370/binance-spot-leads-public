@@ -111,6 +111,8 @@ jobs:
           metrics_payload = json.loads(Path("data/futures_only_metrics.json").read_text(encoding="utf-8"))
           if metrics_payload.get("data_type") != "binance_futures_only_metrics":
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：data_type 不正确")
+          if metrics_payload.get("schema_version") != "3.0":
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：schema_version 不是 3.0")
           if metrics_payload.get("status") != "ready":
               raise SystemExit("遇到错误：仅合约域数据校验，返回内容：status 不是 ready")
           if not metrics_payload.get("public_read_only"):
