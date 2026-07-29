@@ -1,14 +1,14 @@
 {
   "schema_version": "3.0",
   "data_type": "binance_futures_only_metrics",
-  "status": "pending_first_sync",
+  "status": "ready",
   "public_read_only": true,
   "timezone": "Asia/Shanghai",
-  "generated_at": "",
+  "generated_at": "2026-07-29T02:25:21.770903Z",
   "window": "latest_complete_utc_day",
-  "volume_date": "",
-  "period_start": "",
-  "period_end": "",
+  "volume_date": "2026-07-27",
+  "period_start": "2026-07-27T00:00:00Z",
+  "period_end": "2026-07-28T00:00:00Z",
   "volume_unit": "USD stablecoin quote-asset equivalent",
   "definition": "在目标完整 UTC 日有 Binance USDⓈ-M 永续归档，且当前没有相同基础资产和计价资产的 Binance 现货交易对。",
   "selected_rule": "data/contracts.json 中收录的合约代码与仅合约域币对的交集。",
@@ -19,14 +19,3831 @@
     "daily_kline_archive": "https://data.binance.vision/data/futures/um/daily/klines/{symbol}/1d/{symbol}-1d-{volume_date}.zip"
   },
   "summary": {
-    "futures_only_pair_count": null,
-    "futures_only_quote_volume_24h": null,
-    "selected_futures_only_pair_count": null,
-    "selected_futures_only_quote_volume_24h": null,
-    "selected_volume_share_percent": null,
-    "active_perpetual_pair_count": null,
-    "active_spot_pair_count": null,
-    "selected_contract_input_count": null
+    "futures_only_pair_count": 424,
+    "futures_only_quote_volume_24h": "21609460296.7463944",
+    "selected_futures_only_pair_count": 55,
+    "selected_futures_only_quote_volume_24h": "2816199545.9088",
+    "selected_volume_share_percent": "13.032253",
+    "active_perpetual_pair_count": 843,
+    "active_spot_pair_count": 1369,
+    "selected_contract_input_count": 60
   },
-  "items": []
+  "items": [
+    {
+      "symbol": "SNDKUSDT",
+      "base_asset": "SNDK",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3842805014.0137",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SNDKUSDT"
+    },
+    {
+      "symbol": "SOXLUSDT",
+      "base_asset": "SOXL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2304498546.4067",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SOXLUSDT"
+    },
+    {
+      "symbol": "SKHYNIXUSDT",
+      "base_asset": "SKHYNIX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2081144302.4595",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SKHYNIXUSDT"
+    },
+    {
+      "symbol": "MUUSDT",
+      "base_asset": "MU",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1668452842.4563",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MUUSDT"
+    },
+    {
+      "symbol": "XAUUSDT",
+      "base_asset": "XAU",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1174064641.93101",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XAUUSDT"
+    },
+    {
+      "symbol": "KORUUSDT",
+      "base_asset": "KORU",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1046274798.9572",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/KORUUSDT"
+    },
+    {
+      "symbol": "SKHYUSDT",
+      "base_asset": "SKHY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1026636025.4264",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SKHYUSDT"
+    },
+    {
+      "symbol": "CLUSDT",
+      "base_asset": "CL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "981260935.2193",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CLUSDT"
+    },
+    {
+      "symbol": "SPCXUSDT",
+      "base_asset": "SPCX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "815323128.7298",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SPCXUSDT"
+    },
+    {
+      "symbol": "AKEUSDT",
+      "base_asset": "AKE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "621669085.8595018",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AKEUSDT"
+    },
+    {
+      "symbol": "XAGUSDT",
+      "base_asset": "XAG",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "605567899.82032",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XAGUSDT"
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "base_asset": "HYPE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "446750891.92647",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HYPEUSDT"
+    },
+    {
+      "symbol": "BZUSDT",
+      "base_asset": "BZ",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "418761898.5305",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BZUSDT"
+    },
+    {
+      "symbol": "EWYUSDT",
+      "base_asset": "EWY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "280868664.5405",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/EWYUSDT"
+    },
+    {
+      "symbol": "SNXXUSDT",
+      "base_asset": "SNXX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "279451976.8077",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SNXXUSDT"
+    },
+    {
+      "symbol": "DRAMUSDT",
+      "base_asset": "DRAM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "274567195.7472",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DRAMUSDT"
+    },
+    {
+      "symbol": "QQQUSDT",
+      "base_asset": "QQQ",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "203781620.6284",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/QQQUSDT"
+    },
+    {
+      "symbol": "INTCUSDT",
+      "base_asset": "INTC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "177602017.1959",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/INTCUSDT"
+    },
+    {
+      "symbol": "BTWUSDT",
+      "base_asset": "BTW",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "169458262.188905",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BTWUSDT"
+    },
+    {
+      "symbol": "SOXSUSDT",
+      "base_asset": "SOXS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "168932653.5548",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SOXSUSDT"
+    },
+    {
+      "symbol": "ONUSDT",
+      "base_asset": "ON",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "141296247.61129",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ONUSDT"
+    },
+    {
+      "symbol": "SAMSUNGUSDT",
+      "base_asset": "SAMSUNG",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "138169074.2701",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SAMSUNGUSDT"
+    },
+    {
+      "symbol": "BEATUSDT",
+      "base_asset": "BEAT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "131548230.1789",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BEATUSDT"
+    },
+    {
+      "symbol": "MRVLUSDT",
+      "base_asset": "MRVL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "116349527.093",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MRVLUSDT"
+    },
+    {
+      "symbol": "TSLAUSDT",
+      "base_asset": "TSLA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "111431369.4063",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TSLAUSDT"
+    },
+    {
+      "symbol": "NVDAUSDT",
+      "base_asset": "NVDA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "104172440.7738",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NVDAUSDT"
+    },
+    {
+      "symbol": "MSTRUSDT",
+      "base_asset": "MSTR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "94015972.7352",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MSTRUSDT"
+    },
+    {
+      "symbol": "GOOGLUSDT",
+      "base_asset": "GOOGL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "89049298.2609",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/GOOGLUSDT"
+    },
+    {
+      "symbol": "CRCLUSDT",
+      "base_asset": "CRCL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "84629946.6418",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CRCLUSDT"
+    },
+    {
+      "symbol": "AMDUSDT",
+      "base_asset": "AMD",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "81116443.997",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AMDUSDT"
+    },
+    {
+      "symbol": "MUUUSDT",
+      "base_asset": "MUU",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "76986391.6319",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/MUUUSDT"
+    },
+    {
+      "symbol": "ESPORTSUSDT",
+      "base_asset": "ESPORTS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "74819822.73523",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ESPORTSUSDT"
+    },
+    {
+      "symbol": "BROCCOLIF3BUSDT",
+      "base_asset": "BROCCOLIF3B",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "67738897.07435",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BROCCOLIF3BUSDT"
+    },
+    {
+      "symbol": "SOONUSDT",
+      "base_asset": "SOON",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "48203063.8393",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SOONUSDT"
+    },
+    {
+      "symbol": "LABUSDT",
+      "base_asset": "LAB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "47091064.873",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LABUSDT"
+    },
+    {
+      "symbol": "NBISUSDT",
+      "base_asset": "NBIS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "43675578.5603",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NBISUSDT"
+    },
+    {
+      "symbol": "AAPLUSDT",
+      "base_asset": "AAPL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "38655741.8236",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AAPLUSDT"
+    },
+    {
+      "symbol": "UBUSDT",
+      "base_asset": "UB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "36349868.81078",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/UBUSDT"
+    },
+    {
+      "symbol": "LITUSDT",
+      "base_asset": "LIT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "33394185.61502",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LITUSDT"
+    },
+    {
+      "symbol": "ZHIPUUSDT",
+      "base_asset": "ZHIPU",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "33030812.3669",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/ZHIPUUSDT"
+    },
+    {
+      "symbol": "USUSDT",
+      "base_asset": "US",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "31674414.187809",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/USUSDT"
+    },
+    {
+      "symbol": "SAFEUSDT",
+      "base_asset": "SAFE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "29508280.26261",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SAFEUSDT"
+    },
+    {
+      "symbol": "LITEUSDT",
+      "base_asset": "LITE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "28241392.7837",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LITEUSDT"
+    },
+    {
+      "symbol": "CBRSUSDT",
+      "base_asset": "CBRS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "27578674.9489",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CBRSUSDT"
+    },
+    {
+      "symbol": "RKLBUSDT",
+      "base_asset": "RKLB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "27495355.3792",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RKLBUSDT"
+    },
+    {
+      "symbol": "COINUSDT",
+      "base_asset": "COIN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "27207557.1598",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/COINUSDT"
+    },
+    {
+      "symbol": "TQQQUSDT",
+      "base_asset": "TQQQ",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "26965329.9149",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/TQQQUSDT"
+    },
+    {
+      "symbol": "TAGUSDT",
+      "base_asset": "TAG",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "26056286.8249468",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TAGUSDT"
+    },
+    {
+      "symbol": "XMRUSDT",
+      "base_asset": "XMR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "24669079.5893",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XMRUSDT"
+    },
+    {
+      "symbol": "VVVUSDT",
+      "base_asset": "VVV",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "24213540.42431",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/VVVUSDT"
+    },
+    {
+      "symbol": "SPYUSDT",
+      "base_asset": "SPY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "23839433.7276",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SPYUSDT"
+    },
+    {
+      "symbol": "BABAUSDT",
+      "base_asset": "BABA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "22761390.586",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BABAUSDT"
+    },
+    {
+      "symbol": "METAUSDT",
+      "base_asset": "META",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "22552620.4636",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/METAUSDT"
+    },
+    {
+      "symbol": "WDCUSDT",
+      "base_asset": "WDC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "22271875.2685",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/WDCUSDT"
+    },
+    {
+      "symbol": "DELLUSDT",
+      "base_asset": "DELL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "21308784.5846",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DELLUSDT"
+    },
+    {
+      "symbol": "AAOIUSDT",
+      "base_asset": "AAOI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "21274350.2864",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AAOIUSDT"
+    },
+    {
+      "symbol": "PIEVERSEUSDT",
+      "base_asset": "PIEVERSE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "20352632.7517",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PIEVERSEUSDT"
+    },
+    {
+      "symbol": "TSMUSDT",
+      "base_asset": "TSM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "20348222.7148",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TSMUSDT"
+    },
+    {
+      "symbol": "CROSSUSDT",
+      "base_asset": "CROSS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "20193284.53974",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CROSSUSDT"
+    },
+    {
+      "symbol": "GWEIUSDT",
+      "base_asset": "GWEI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "20009132.99017",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/GWEIUSDT"
+    },
+    {
+      "symbol": "FARTCOINUSDT",
+      "base_asset": "FARTCOIN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "19336176.2483",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FARTCOINUSDT"
+    },
+    {
+      "symbol": "SPCXUSD1",
+      "base_asset": "SPCX",
+      "quote_asset": "USD1",
+      "quote_volume_24h": "19088017.8157",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SPCXUSD1"
+    },
+    {
+      "symbol": "MVLLUSDT",
+      "base_asset": "MVLL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "19062147.4243",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/MVLLUSDT"
+    },
+    {
+      "symbol": "ORCLUSDT",
+      "base_asset": "ORCL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "18805390.4119",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ORCLUSDT"
+    },
+    {
+      "symbol": "IBMUSDT",
+      "base_asset": "IBM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "18467053.1799",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/IBMUSDT"
+    },
+    {
+      "symbol": "NATGASUSDT",
+      "base_asset": "NATGAS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "18445105.6305",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NATGASUSDT"
+    },
+    {
+      "symbol": "IRYSUSDT",
+      "base_asset": "IRYS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "18423697.41437",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/IRYSUSDT"
+    },
+    {
+      "symbol": "GLWUSDT",
+      "base_asset": "GLW",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "17852925.3274",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/GLWUSDT"
+    },
+    {
+      "symbol": "SLXUSDT",
+      "base_asset": "SLX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "17325229.77099",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SLXUSDT"
+    },
+    {
+      "symbol": "MSFTUSDT",
+      "base_asset": "MSFT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "16958139.8355",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MSFTUSDT"
+    },
+    {
+      "symbol": "4USDT",
+      "base_asset": "4",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "16862208.210295",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/4USDT"
+    },
+    {
+      "symbol": "HOODUSDT",
+      "base_asset": "HOOD",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "16558858.5526",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HOODUSDT"
+    },
+    {
+      "symbol": "DODOXUSDT",
+      "base_asset": "DODOX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "16291187.76774",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DODOXUSDT"
+    },
+    {
+      "symbol": "ARMUSDT",
+      "base_asset": "ARM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "16218005.9084",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ARMUSDT"
+    },
+    {
+      "symbol": "IDOLUSDT",
+      "base_asset": "IDOL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "16020994.07601",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/IDOLUSDT"
+    },
+    {
+      "symbol": "BUSDT",
+      "base_asset": "B",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "15729419.6434",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BUSDT"
+    },
+    {
+      "symbol": "RIVERUSDT",
+      "base_asset": "RIVER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "14505358.3058",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RIVERUSDT"
+    },
+    {
+      "symbol": "MINIMAXUSDT",
+      "base_asset": "MINIMAX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "13536655.6065",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/MINIMAXUSDT"
+    },
+    {
+      "symbol": "BMNRUSDT",
+      "base_asset": "BMNR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "11513132.4183",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/BMNRUSDT"
+    },
+    {
+      "symbol": "BULLAUSDT",
+      "base_asset": "BULLA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "11178171.682005",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BULLAUSDT"
+    },
+    {
+      "symbol": "CRWVUSDT",
+      "base_asset": "CRWV",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "11096402.52",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CRWVUSDT"
+    },
+    {
+      "symbol": "EVAAUSDT",
+      "base_asset": "EVAA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "10584085.01352",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/EVAAUSDT"
+    },
+    {
+      "symbol": "VELVETUSDT",
+      "base_asset": "VELVET",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "10405265.05926",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/VELVETUSDT"
+    },
+    {
+      "symbol": "STRCUSDT",
+      "base_asset": "STRC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "10283174.7973",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/STRCUSDT"
+    },
+    {
+      "symbol": "INXUSDT",
+      "base_asset": "INX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "10094300.388852",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/INXUSDT"
+    },
+    {
+      "symbol": "PLTRUSDT",
+      "base_asset": "PLTR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "9866565.0085",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PLTRUSDT"
+    },
+    {
+      "symbol": "CAPUSDT",
+      "base_asset": "CAP",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "9591393.24621",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/CAPUSDT"
+    },
+    {
+      "symbol": "BEUSDT",
+      "base_asset": "BE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "9509430.103",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BEUSDT"
+    },
+    {
+      "symbol": "BSBUSDT",
+      "base_asset": "BSB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "8869986.66814",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BSBUSDT"
+    },
+    {
+      "symbol": "BASEDUSDT",
+      "base_asset": "BASED",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "8652118.09131",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BASEDUSDT"
+    },
+    {
+      "symbol": "NOKUSDT",
+      "base_asset": "NOK",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "8428488.4412",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NOKUSDT"
+    },
+    {
+      "symbol": "ASMLUSDT",
+      "base_asset": "ASML",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "8416282.3258",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ASMLUSDT"
+    },
+    {
+      "symbol": "OUSDT",
+      "base_asset": "O",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "8391708.9006",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/OUSDT"
+    },
+    {
+      "symbol": "SQQQUSDT",
+      "base_asset": "SQQQ",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "7365826.4967",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SQQQUSDT"
+    },
+    {
+      "symbol": "PIPPINUSDT",
+      "base_asset": "PIPPIN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "7240281.57316",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PIPPINUSDT"
+    },
+    {
+      "symbol": "AMZNUSDT",
+      "base_asset": "AMZN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "7212316.2593",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AMZNUSDT"
+    },
+    {
+      "symbol": "EDGEUSDT",
+      "base_asset": "EDGE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "7022338.9206",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/EDGEUSDT"
+    },
+    {
+      "symbol": "IRENUSDT",
+      "base_asset": "IREN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "6775891.2733",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/IRENUSDT"
+    },
+    {
+      "symbol": "USELESSUSDT",
+      "base_asset": "USELESS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "6761521.2878",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/USELESSUSDT"
+    },
+    {
+      "symbol": "BILLUSDT",
+      "base_asset": "BILL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "6621206.77857",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BILLUSDT"
+    },
+    {
+      "symbol": "SIRENUSDT",
+      "base_asset": "SIREN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "6520235.02207",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SIRENUSDT"
+    },
+    {
+      "symbol": "SKYAIUSDT",
+      "base_asset": "SKYAI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "6374273.12057",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SKYAIUSDT"
+    },
+    {
+      "symbol": "NOWUSDT",
+      "base_asset": "NOW",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "6111139.8713",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NOWUSDT"
+    },
+    {
+      "symbol": "TRUSTUSDT",
+      "base_asset": "TRUST",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "6093384.58122",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TRUSTUSDT"
+    },
+    {
+      "symbol": "XPTUSDT",
+      "base_asset": "XPT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "6060168.6364",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XPTUSDT"
+    },
+    {
+      "symbol": "PRLUSDT",
+      "base_asset": "PRL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "6045755.9212",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PRLUSDT"
+    },
+    {
+      "symbol": "XPDUSDT",
+      "base_asset": "XPD",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5974684.04809",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XPDUSDT"
+    },
+    {
+      "symbol": "MONUSDT",
+      "base_asset": "MON",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5851834.01484",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MONUSDT"
+    },
+    {
+      "symbol": "RAVEUSDT",
+      "base_asset": "RAVE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5720995.8385",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RAVEUSDT"
+    },
+    {
+      "symbol": "QCOMUSDT",
+      "base_asset": "QCOM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5707927.0675",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/QCOMUSDT"
+    },
+    {
+      "symbol": "LIGHTUSDT",
+      "base_asset": "LIGHT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5581163.6384",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LIGHTUSDT"
+    },
+    {
+      "symbol": "龙虾USDT",
+      "base_asset": "龙虾",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5577137.989166",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/龙虾USDT"
+    },
+    {
+      "symbol": "AXTIUSDT",
+      "base_asset": "AXTI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5529008.4106",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AXTIUSDT"
+    },
+    {
+      "symbol": "TRIAUSDT",
+      "base_asset": "TRIA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5514361.310479",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TRIAUSDT"
+    },
+    {
+      "symbol": "GRASSUSDT",
+      "base_asset": "GRASS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5464618.55552",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/GRASSUSDT"
+    },
+    {
+      "symbol": "CHILLGUYUSDT",
+      "base_asset": "CHILLGUY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5325943.747149",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CHILLGUYUSDT"
+    },
+    {
+      "symbol": "AVGOUSDT",
+      "base_asset": "AVGO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5270515.1953",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AVGOUSDT"
+    },
+    {
+      "symbol": "AMATUSDT",
+      "base_asset": "AMAT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5238780.8866",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AMATUSDT"
+    },
+    {
+      "symbol": "COPPERUSDT",
+      "base_asset": "COPPER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5111856.2339",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/COPPERUSDT"
+    },
+    {
+      "symbol": "CLOUSDT",
+      "base_asset": "CLO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "5109132.26011",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CLOUSDT"
+    },
+    {
+      "symbol": "QUSDT",
+      "base_asset": "Q",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4938982.581986",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/QUSDT"
+    },
+    {
+      "symbol": "ARXUSDT",
+      "base_asset": "ARX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4779443.9314",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/ARXUSDT"
+    },
+    {
+      "symbol": "ELSAUSDT",
+      "base_asset": "ELSA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4584518.67437",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ELSAUSDT"
+    },
+    {
+      "symbol": "MYXUSDT",
+      "base_asset": "MYX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4537608.15668",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MYXUSDT"
+    },
+    {
+      "symbol": "ANTHROPICUSDT",
+      "base_asset": "ANTHROPIC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4428852.6971",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ANTHROPICUSDT"
+    },
+    {
+      "symbol": "HK1810USDT",
+      "base_asset": "HK1810",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4397958.7061",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/HK1810USDT"
+    },
+    {
+      "symbol": "JELLYJELLYUSDT",
+      "base_asset": "JELLYJELLY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4338732.09648",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/JELLYJELLYUSDT"
+    },
+    {
+      "symbol": "SMCIUSDT",
+      "base_asset": "SMCI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4154047.6439",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SMCIUSDT"
+    },
+    {
+      "symbol": "KGENUSDT",
+      "base_asset": "KGEN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4112795.92182",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/KGENUSDT"
+    },
+    {
+      "symbol": "USARUSDT",
+      "base_asset": "USAR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "4091754.6498",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/USARUSDT"
+    },
+    {
+      "symbol": "SPXUSDT",
+      "base_asset": "SPX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3960936.5357",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SPXUSDT"
+    },
+    {
+      "symbol": "INTWUSDT",
+      "base_asset": "INTW",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3945391.3359",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/INTWUSDT"
+    },
+    {
+      "symbol": "AIAUSDT",
+      "base_asset": "AIA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3893684.44195",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AIAUSDT"
+    },
+    {
+      "symbol": "STABLEUSDT",
+      "base_asset": "STABLE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3839009.811197",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/STABLEUSDT"
+    },
+    {
+      "symbol": "QNTXUSDT",
+      "base_asset": "QNTX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3754193.1444",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/QNTXUSDT"
+    },
+    {
+      "symbol": "KSTRUSDT",
+      "base_asset": "KSTR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3670640.7848",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/KSTRUSDT"
+    },
+    {
+      "symbol": "FLNCUSDT",
+      "base_asset": "FLNC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3614582.3739",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FLNCUSDT"
+    },
+    {
+      "symbol": "COAIUSDT",
+      "base_asset": "COAI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3569065.0316",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/COAIUSDT"
+    },
+    {
+      "symbol": "XPINUSDT",
+      "base_asset": "XPIN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3509543.280278",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XPINUSDT"
+    },
+    {
+      "symbol": "STXXUSDT",
+      "base_asset": "STXX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3466861.0295",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/STXXUSDT"
+    },
+    {
+      "symbol": "HUSDT",
+      "base_asset": "H",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3435920.72245",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HUSDT"
+    },
+    {
+      "symbol": "SPACEUSDT",
+      "base_asset": "SPACE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3397276.895626",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SPACEUSDT"
+    },
+    {
+      "symbol": "MAGMAUSDT",
+      "base_asset": "MAGMA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3377642.74231",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MAGMAUSDT"
+    },
+    {
+      "symbol": "BLESSUSDT",
+      "base_asset": "BLESS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3344715.202434",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BLESSUSDT"
+    },
+    {
+      "symbol": "TACUSDT",
+      "base_asset": "TAC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3253192.65438",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TACUSDT"
+    },
+    {
+      "symbol": "STARUSDT",
+      "base_asset": "STAR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3223471.79611",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/STARUSDT"
+    },
+    {
+      "symbol": "CRDOUSDT",
+      "base_asset": "CRDO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3172282.9865",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CRDOUSDT"
+    },
+    {
+      "symbol": "INUSDT",
+      "base_asset": "IN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3136032.20033",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/INUSDT"
+    },
+    {
+      "symbol": "PTBUSDT",
+      "base_asset": "PTB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3113211.5983722",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PTBUSDT"
+    },
+    {
+      "symbol": "B2USDT",
+      "base_asset": "B2",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "3005253.442",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/B2USDT"
+    },
+    {
+      "symbol": "COLLECTUSDT",
+      "base_asset": "COLLECT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2969038.09238",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/COLLECTUSDT"
+    },
+    {
+      "symbol": "AVAAIUSDT",
+      "base_asset": "AVAAI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2920631.950305",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AVAAIUSDT"
+    },
+    {
+      "symbol": "COHRUSDT",
+      "base_asset": "COHR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2875559.9644",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/COHRUSDT"
+    },
+    {
+      "symbol": "PENGUSDT",
+      "base_asset": "PENG",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2860002.3195",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/PENGUSDT"
+    },
+    {
+      "symbol": "KASUSDT",
+      "base_asset": "KAS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2805202.99812",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/KASUSDT"
+    },
+    {
+      "symbol": "ATHUSDT",
+      "base_asset": "ATH",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2797474.912815",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ATHUSDT"
+    },
+    {
+      "symbol": "ASTSUSDT",
+      "base_asset": "ASTS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2709769.7326",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ASTSUSDT"
+    },
+    {
+      "symbol": "LUNA2USDT",
+      "base_asset": "LUNA2",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2703660.62435",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LUNA2USDT"
+    },
+    {
+      "symbol": "ARCUSDT",
+      "base_asset": "ARC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2702007.19719",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ARCUSDT"
+    },
+    {
+      "symbol": "MERLUSDT",
+      "base_asset": "MERL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2680512.53508",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MERLUSDT"
+    },
+    {
+      "symbol": "TAIKOUSDT",
+      "base_asset": "TAIKO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2611669.40224",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TAIKOUSDT"
+    },
+    {
+      "symbol": "AIOUSDT",
+      "base_asset": "AIO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2506565.09009",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AIOUSDT"
+    },
+    {
+      "symbol": "ZORAUSDT",
+      "base_asset": "ZORA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2484432.667774",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ZORAUSDT"
+    },
+    {
+      "symbol": "ZEREBROUSDT",
+      "base_asset": "ZEREBRO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2386720.528629",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ZEREBROUSDT"
+    },
+    {
+      "symbol": "MOODENGUSDT",
+      "base_asset": "MOODENG",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2385183.58115",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MOODENGUSDT"
+    },
+    {
+      "symbol": "HANAUSDT",
+      "base_asset": "HANA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2382810.20374",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HANAUSDT"
+    },
+    {
+      "symbol": "BTCDOMUSDT",
+      "base_asset": "BTCDOM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2360698.018",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BTCDOMUSDT"
+    },
+    {
+      "symbol": "SHAZUSDT",
+      "base_asset": "SHAZ",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2351637.6326",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SHAZUSDT"
+    },
+    {
+      "symbol": "UAIUSDT",
+      "base_asset": "UAI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2328848.3725",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/UAIUSDT"
+    },
+    {
+      "symbol": "BBXUSDT",
+      "base_asset": "BBX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2265061.3492",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BBXUSDT"
+    },
+    {
+      "symbol": "CCUSDT",
+      "base_asset": "CC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2258998.71175",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CCUSDT"
+    },
+    {
+      "symbol": "PHAROSUSDT",
+      "base_asset": "PHAROS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2240824.715",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PHAROSUSDT"
+    },
+    {
+      "symbol": "JCTUSDT",
+      "base_asset": "JCT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2201254.511798",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/JCTUSDT"
+    },
+    {
+      "symbol": "TRUTHUSDT",
+      "base_asset": "TRUTH",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2158790.622278",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TRUTHUSDT"
+    },
+    {
+      "symbol": "AKTUSDT",
+      "base_asset": "AKT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2143051.51942",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AKTUSDT"
+    },
+    {
+      "symbol": "APRUSDT",
+      "base_asset": "APR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2142716.65498",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/APRUSDT"
+    },
+    {
+      "symbol": "TRADOORUSDT",
+      "base_asset": "TRADOOR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2140905.751",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TRADOORUSDT"
+    },
+    {
+      "symbol": "OPENAIUSDT",
+      "base_asset": "OPENAI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2129997.1673",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/OPENAIUSDT"
+    },
+    {
+      "symbol": "DOODUSDT",
+      "base_asset": "DOOD",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2055064.247517",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DOODUSDT"
+    },
+    {
+      "symbol": "WETUSDT",
+      "base_asset": "WET",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "2047120.07071",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/WETUSDT"
+    },
+    {
+      "symbol": "PLAYUSDT",
+      "base_asset": "PLAY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1980266.11019",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PLAYUSDT"
+    },
+    {
+      "symbol": "HYUNDAIUSDT",
+      "base_asset": "HYUNDAI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1956092.1597",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HYUNDAIUSDT"
+    },
+    {
+      "symbol": "XANUSDT",
+      "base_asset": "XAN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1943835.454534",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XANUSDT"
+    },
+    {
+      "symbol": "POWERUSDT",
+      "base_asset": "POWER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1927908.15444",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/POWERUSDT"
+    },
+    {
+      "symbol": "GUAUSDT",
+      "base_asset": "GUA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1908554.17771",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/GUAUSDT"
+    },
+    {
+      "symbol": "ONDSUSDT",
+      "base_asset": "ONDS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1906863.495",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ONDSUSDT"
+    },
+    {
+      "symbol": "ORDERUSDT",
+      "base_asset": "ORDER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1906377.3597",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ORDERUSDT"
+    },
+    {
+      "symbol": "PANWUSDT",
+      "base_asset": "PANW",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1904631.2647",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/PANWUSDT"
+    },
+    {
+      "symbol": "CIENUSDT",
+      "base_asset": "CIEN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1842284.6847",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/CIENUSDT"
+    },
+    {
+      "symbol": "BIRBUSDT",
+      "base_asset": "BIRB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1817592.77854",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BIRBUSDT"
+    },
+    {
+      "symbol": "DATAIPUSDT",
+      "base_asset": "DATAIP",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1814560.3054",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/DATAIPUSDT"
+    },
+    {
+      "symbol": "MELANIAUSDT",
+      "base_asset": "MELANIA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1803372.7414889",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MELANIAUSDT"
+    },
+    {
+      "symbol": "MUSDT",
+      "base_asset": "M",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1799735.0384",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MUSDT"
+    },
+    {
+      "symbol": "UVXYUSDT",
+      "base_asset": "UVXY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1790874.5716",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/UVXYUSDT"
+    },
+    {
+      "symbol": "FLOCKUSDT",
+      "base_asset": "FLOCK",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1786687.90832",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FLOCKUSDT"
+    },
+    {
+      "symbol": "SWARMSUSDT",
+      "base_asset": "SWARMS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1783857.286031",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SWARMSUSDT"
+    },
+    {
+      "symbol": "FHEUSDT",
+      "base_asset": "FHE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1715548.33813",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FHEUSDT"
+    },
+    {
+      "symbol": "ALABUSDT",
+      "base_asset": "ALAB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1672606.9622",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/ALABUSDT"
+    },
+    {
+      "symbol": "POPCATUSDT",
+      "base_asset": "POPCAT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1662128.78989",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/POPCATUSDT"
+    },
+    {
+      "symbol": "NFLXUSDT",
+      "base_asset": "NFLX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1630523.7817",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NFLXUSDT"
+    },
+    {
+      "symbol": "LYNUSDT",
+      "base_asset": "LYN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1621497.91302",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LYNUSDT"
+    },
+    {
+      "symbol": "AGTUSDT",
+      "base_asset": "AGT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1619692.747252",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AGTUSDT"
+    },
+    {
+      "symbol": "PUMPBTCUSDT",
+      "base_asset": "PUMPBTC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1526144.86166",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PUMPBTCUSDT"
+    },
+    {
+      "symbol": "BRETTUSDT",
+      "base_asset": "BRETT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1505098.389623",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BRETTUSDT"
+    },
+    {
+      "symbol": "AIOTUSDT",
+      "base_asset": "AIOT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1500114.77896",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AIOTUSDT"
+    },
+    {
+      "symbol": "ADBEUSDT",
+      "base_asset": "ADBE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1495097.586",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/ADBEUSDT"
+    },
+    {
+      "symbol": "LLYUSDT",
+      "base_asset": "LLY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1407758.6329",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LLYUSDT"
+    },
+    {
+      "symbol": "KLACUSDT",
+      "base_asset": "KLAC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1401718.3832",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/KLACUSDT"
+    },
+    {
+      "symbol": "MEWUSDT",
+      "base_asset": "MEW",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1401034.4360948",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MEWUSDT"
+    },
+    {
+      "symbol": "TAKEUSDT",
+      "base_asset": "TAKE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1379167.62578",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TAKEUSDT"
+    },
+    {
+      "symbol": "TOSHIUSDT",
+      "base_asset": "TOSHI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1374760.1421129",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TOSHIUSDT"
+    },
+    {
+      "symbol": "LRCXUSDT",
+      "base_asset": "LRCX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1373128.4996",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/LRCXUSDT"
+    },
+    {
+      "symbol": "SONYUSDT",
+      "base_asset": "SONY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1373104.2722",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SONYUSDT"
+    },
+    {
+      "symbol": "TMFUSDT",
+      "base_asset": "TMF",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1357004.6145",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/TMFUSDT"
+    },
+    {
+      "symbol": "BRUSDT",
+      "base_asset": "BR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1352734.86731",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BRUSDT"
+    },
+    {
+      "symbol": "BOTUSDT",
+      "base_asset": "BOT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1337010.4626",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/BOTUSDT"
+    },
+    {
+      "symbol": "BASUSDT",
+      "base_asset": "BAS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1317679.634467",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BASUSDT"
+    },
+    {
+      "symbol": "APPUSDT",
+      "base_asset": "APP",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1309243.9167",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/APPUSDT"
+    },
+    {
+      "symbol": "1000RATSUSDT",
+      "base_asset": "1000RATS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1307593.58845",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/1000RATSUSDT"
+    },
+    {
+      "symbol": "CLANKERUSDT",
+      "base_asset": "CLANKER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1300131.5306",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CLANKERUSDT"
+    },
+    {
+      "symbol": "HIMSUSDT",
+      "base_asset": "HIMS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1259472.2208",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HIMSUSDT"
+    },
+    {
+      "symbol": "DRIFTUSDT",
+      "base_asset": "DRIFT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1248940.70853",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DRIFTUSDT"
+    },
+    {
+      "symbol": "MOCAUSDT",
+      "base_asset": "MOCA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1225031.90334",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MOCAUSDT"
+    },
+    {
+      "symbol": "GEVUSDT",
+      "base_asset": "GEV",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1219497.0557",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/GEVUSDT"
+    },
+    {
+      "symbol": "STBLUSDT",
+      "base_asset": "STBL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1218969.30816",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/STBLUSDT"
+    },
+    {
+      "symbol": "BXUSDT",
+      "base_asset": "BX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1187873.0388",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BXUSDT"
+    },
+    {
+      "symbol": "我踏马来了USDT",
+      "base_asset": "我踏马来了",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1186227.50633",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/我踏马来了USDT"
+    },
+    {
+      "symbol": "EWTUSDT",
+      "base_asset": "EWT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1184822.8319",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/EWTUSDT"
+    },
+    {
+      "symbol": "ARIAUSDT",
+      "base_asset": "ARIA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1159796.22464",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ARIAUSDT"
+    },
+    {
+      "symbol": "HPEUSDT",
+      "base_asset": "HPE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1153398.0601",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HPEUSDT"
+    },
+    {
+      "symbol": "SQDUSDT",
+      "base_asset": "SQD",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1133568.12909",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SQDUSDT"
+    },
+    {
+      "symbol": "BLUAIUSDT",
+      "base_asset": "BLUAI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1122734.976186",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BLUAIUSDT"
+    },
+    {
+      "symbol": "AZTECUSDT",
+      "base_asset": "AZTEC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1113341.9116",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AZTECUSDT"
+    },
+    {
+      "symbol": "RAYSOLUSDT",
+      "base_asset": "RAYSOL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1108167.45496",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RAYSOLUSDT"
+    },
+    {
+      "symbol": "AINUSDT",
+      "base_asset": "AIN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1096171.72465",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AINUSDT"
+    },
+    {
+      "symbol": "RECALLUSDT",
+      "base_asset": "RECALL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1080788.54677",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RECALLUSDT"
+    },
+    {
+      "symbol": "XNYUSDT",
+      "base_asset": "XNY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1080371.627693",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XNYUSDT"
+    },
+    {
+      "symbol": "FOLKSUSDT",
+      "base_asset": "FOLKS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1073013.2874",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FOLKSUSDT"
+    },
+    {
+      "symbol": "1000000MOGUSDT",
+      "base_asset": "1000000MOG",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1064939.64217",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/1000000MOGUSDT"
+    },
+    {
+      "symbol": "NAORISUSDT",
+      "base_asset": "NAORIS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1046714.19077",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NAORISUSDT"
+    },
+    {
+      "symbol": "ZETAUSDT",
+      "base_asset": "ZETA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1012522.11498",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ZETAUSDT"
+    },
+    {
+      "symbol": "ZESTUSDT",
+      "base_asset": "ZEST",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "1005456.55514",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ZESTUSDT"
+    },
+    {
+      "symbol": "EWJUSDT",
+      "base_asset": "EWJ",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "994602.1273",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/EWJUSDT"
+    },
+    {
+      "symbol": "ACUUSDT",
+      "base_asset": "ACU",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "993153.41594",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ACUUSDT"
+    },
+    {
+      "symbol": "TENCENTUSDT",
+      "base_asset": "TENCENT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "992548.4745",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/TENCENTUSDT"
+    },
+    {
+      "symbol": "CTRUSDT",
+      "base_asset": "CTR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "971244.759954",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CTRUSDT"
+    },
+    {
+      "symbol": "GOATUSDT",
+      "base_asset": "GOAT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "957035.19419",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/GOATUSDT"
+    },
+    {
+      "symbol": "FWDIUSDT",
+      "base_asset": "FWDI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "931581.58692",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/FWDIUSDT"
+    },
+    {
+      "symbol": "DEEPUSDT",
+      "base_asset": "DEEP",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "930225.18585",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DEEPUSDT"
+    },
+    {
+      "symbol": "TAUSDT",
+      "base_asset": "TA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "926915.43793",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TAUSDT"
+    },
+    {
+      "symbol": "VRTUSDT",
+      "base_asset": "VRT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "911604.8647",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/VRTUSDT"
+    },
+    {
+      "symbol": "SOFIUSDT",
+      "base_asset": "SOFI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "909294.1425",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SOFIUSDT"
+    },
+    {
+      "symbol": "BTRUSDT",
+      "base_asset": "BTR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "893180.35944",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BTRUSDT"
+    },
+    {
+      "symbol": "ZMUSDT",
+      "base_asset": "ZM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "883430.1189",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ZMUSDT"
+    },
+    {
+      "symbol": "BITOUSDT",
+      "base_asset": "BITO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "879118.0766",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/BITOUSDT"
+    },
+    {
+      "symbol": "CRMUSDT",
+      "base_asset": "CRM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "845899.4688",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CRMUSDT"
+    },
+    {
+      "symbol": "BRKBUSDT",
+      "base_asset": "BRKB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "845452.8885",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BRKBUSDT"
+    },
+    {
+      "symbol": "BSVUSDT",
+      "base_asset": "BSV",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "843961.906",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BSVUSDT"
+    },
+    {
+      "symbol": "HK0700USDT",
+      "base_asset": "HK0700",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "841664.5207",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/HK0700USDT"
+    },
+    {
+      "symbol": "KOMAUSDT",
+      "base_asset": "KOMA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "830738.908519",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/KOMAUSDT"
+    },
+    {
+      "symbol": "TERUSDT",
+      "base_asset": "TER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "817247.4784",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/TERUSDT"
+    },
+    {
+      "symbol": "GRIFFAINUSDT",
+      "base_asset": "GRIFFAIN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "800238.652827",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/GRIFFAINUSDT"
+    },
+    {
+      "symbol": "CATUSDT",
+      "base_asset": "CAT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "795096.7491",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/CATUSDT"
+    },
+    {
+      "symbol": "SPORTFUNUSDT",
+      "base_asset": "SPORTFUN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "773895.15339",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SPORTFUNUSDT"
+    },
+    {
+      "symbol": "ICNTUSDT",
+      "base_asset": "ICNT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "771424.6666",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ICNTUSDT"
+    },
+    {
+      "symbol": "JPMUSDT",
+      "base_asset": "JPM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "763057.7276",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/JPMUSDT"
+    },
+    {
+      "symbol": "CARVUSDT",
+      "base_asset": "CARV",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "743768.81856",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CARVUSDT"
+    },
+    {
+      "symbol": "FIGHTUSDT",
+      "base_asset": "FIGHT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "735748.453093",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FIGHTUSDT"
+    },
+    {
+      "symbol": "FLUIDUSDT",
+      "base_asset": "FLUID",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "730936.2733",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FLUIDUSDT"
+    },
+    {
+      "symbol": "RIVNUSDT",
+      "base_asset": "RIVN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "726291.2368",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RIVNUSDT"
+    },
+    {
+      "symbol": "CYSUSDT",
+      "base_asset": "CYS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "701462.6681",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CYSUSDT"
+    },
+    {
+      "symbol": "WENUSDT",
+      "base_asset": "WEN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "694876.0292",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/WENUSDT"
+    },
+    {
+      "symbol": "CRWDUSDT",
+      "base_asset": "CRWD",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "680913.1981",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CRWDUSDT"
+    },
+    {
+      "symbol": "PROMPTUSDT",
+      "base_asset": "PROMPT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "678874.65493",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PROMPTUSDT"
+    },
+    {
+      "symbol": "BSPUSDT",
+      "base_asset": "BSP",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "638552.3",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/BSPUSDT"
+    },
+    {
+      "symbol": "ALLUSDT",
+      "base_asset": "ALL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "621889.6009",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ALLUSDT"
+    },
+    {
+      "symbol": "NVOUSDT",
+      "base_asset": "NVO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "620541.0804",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NVOUSDT"
+    },
+    {
+      "symbol": "VUSDT",
+      "base_asset": "V",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "609425.1479",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/VUSDT"
+    },
+    {
+      "symbol": "ALCHUSDT",
+      "base_asset": "ALCH",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "591756.51542",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ALCHUSDT"
+    },
+    {
+      "symbol": "TBTUSDT",
+      "base_asset": "TBT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "591038.53",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/TBTUSDT"
+    },
+    {
+      "symbol": "UBERUSDT",
+      "base_asset": "UBER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "589216.3814",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/UBERUSDT"
+    },
+    {
+      "symbol": "PAYPUSDT",
+      "base_asset": "PAYP",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "579778.2988",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PAYPUSDT"
+    },
+    {
+      "symbol": "SNOWUSDT",
+      "base_asset": "SNOW",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "577291.4865",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/SNOWUSDT"
+    },
+    {
+      "symbol": "BNCUSDT",
+      "base_asset": "BNC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "570203.16637",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/BNCUSDT"
+    },
+    {
+      "symbol": "CSCOUSDT",
+      "base_asset": "CSCO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "562691.4604",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CSCOUSDT"
+    },
+    {
+      "symbol": "SKRUSDT",
+      "base_asset": "SKR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "561683.902801",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SKRUSDT"
+    },
+    {
+      "symbol": "TZAUSDT",
+      "base_asset": "TZA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "560460.7348",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/TZAUSDT"
+    },
+    {
+      "symbol": "XLEUSDT",
+      "base_asset": "XLE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "552800.1963",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XLEUSDT"
+    },
+    {
+      "symbol": "BANUSDT",
+      "base_asset": "BAN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "551003.91611",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BANUSDT"
+    },
+    {
+      "symbol": "MAVIAUSDT",
+      "base_asset": "MAVIA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "544638.811",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MAVIAUSDT"
+    },
+    {
+      "symbol": "1000000BOBUSDT",
+      "base_asset": "1000000BOB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "535315.48348",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/1000000BOBUSDT"
+    },
+    {
+      "symbol": "GMEUSDT",
+      "base_asset": "GME",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "535010.1902",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/GMEUSDT"
+    },
+    {
+      "symbol": "EBAYUSDT",
+      "base_asset": "EBAY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "530876.6063",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/EBAYUSDT"
+    },
+    {
+      "symbol": "DISUSDT",
+      "base_asset": "DIS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "507250.8753",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DISUSDT"
+    },
+    {
+      "symbol": "FLEXUSDT",
+      "base_asset": "FLEX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "495705.4361",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/FLEXUSDT"
+    },
+    {
+      "symbol": "IWMUSDT",
+      "base_asset": "IWM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "495264.6967",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/IWMUSDT"
+    },
+    {
+      "symbol": "WMTUSDT",
+      "base_asset": "WMT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "491384.7123",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/WMTUSDT"
+    },
+    {
+      "symbol": "COSTUSDT",
+      "base_asset": "COST",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "489976.3548",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/COSTUSDT"
+    },
+    {
+      "symbol": "DKNGUSDT",
+      "base_asset": "DKNG",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "479270.8628",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DKNGUSDT"
+    },
+    {
+      "symbol": "POPMARTUSDT",
+      "base_asset": "POPMART",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "470504.7718",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/POPMARTUSDT"
+    },
+    {
+      "symbol": "TXNUSDT",
+      "base_asset": "TXN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "439443.3937",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/TXNUSDT"
+    },
+    {
+      "symbol": "TTWOUSDT",
+      "base_asset": "TTWO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "427241.457",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/TTWOUSDT"
+    },
+    {
+      "symbol": "URNMUSDT",
+      "base_asset": "URNM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "413001.3053",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/URNMUSDT"
+    },
+    {
+      "symbol": "ETHWUSDT",
+      "base_asset": "ETHW",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "401631.3346",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ETHWUSDT"
+    },
+    {
+      "symbol": "SONICUSDT",
+      "base_asset": "SONIC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "387032.40086",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SONICUSDT"
+    },
+    {
+      "symbol": "HDUSDT",
+      "base_asset": "HD",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "380444.8003",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HDUSDT"
+    },
+    {
+      "symbol": "XBIUSDT",
+      "base_asset": "XBI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "336766.3476",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/XBIUSDT"
+    },
+    {
+      "symbol": "EWZUSDT",
+      "base_asset": "EWZ",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "249298.6291",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/EWZUSDT"
+    },
+    {
+      "symbol": "DATAIPUSDC",
+      "base_asset": "DATAIP",
+      "quote_asset": "USDC",
+      "quote_volume_24h": "159376.0636",
+      "volume_date": "2026-07-27",
+      "selected": true,
+      "trade_url": "https://www.binance.com/en/futures/DATAIPUSDC"
+    },
+    {
+      "symbol": "1000WHYUSDT",
+      "base_asset": "1000WHY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/1000WHYUSDT"
+    },
+    {
+      "symbol": "1000XUSDT",
+      "base_asset": "1000X",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/1000XUSDT"
+    },
+    {
+      "symbol": "42USDT",
+      "base_asset": "42",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/42USDT"
+    },
+    {
+      "symbol": "A2ZUSDT",
+      "base_asset": "A2Z",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/A2ZUSDT"
+    },
+    {
+      "symbol": "AGIXUSDT",
+      "base_asset": "AGIX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AGIXUSDT"
+    },
+    {
+      "symbol": "AI16ZUSDT",
+      "base_asset": "AI16Z",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AI16ZUSDT"
+    },
+    {
+      "symbol": "ALPACAUSDT",
+      "base_asset": "ALPACA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ALPACAUSDT"
+    },
+    {
+      "symbol": "ALPHAUSDT",
+      "base_asset": "ALPHA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ALPHAUSDT"
+    },
+    {
+      "symbol": "AMBUSDT",
+      "base_asset": "AMB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/AMBUSDT"
+    },
+    {
+      "symbol": "ATAUSDT",
+      "base_asset": "ATA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ATAUSDT"
+    },
+    {
+      "symbol": "B3USDT",
+      "base_asset": "B3",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/B3USDT"
+    },
+    {
+      "symbol": "BADGERUSDT",
+      "base_asset": "BADGER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BADGERUSDT"
+    },
+    {
+      "symbol": "BAKEUSDT",
+      "base_asset": "BAKE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BAKEUSDT"
+    },
+    {
+      "symbol": "BALUSDT",
+      "base_asset": "BAL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BALUSDT"
+    },
+    {
+      "symbol": "BIDUSDT",
+      "base_asset": "BID",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BIDUSDT"
+    },
+    {
+      "symbol": "BLZUSDT",
+      "base_asset": "BLZ",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BLZUSDT"
+    },
+    {
+      "symbol": "BNXUSDT",
+      "base_asset": "BNX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BNXUSDT"
+    },
+    {
+      "symbol": "BOBUSDT",
+      "base_asset": "BOB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BOBUSDT"
+    },
+    {
+      "symbol": "BONDUSDT",
+      "base_asset": "BOND",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BONDUSDT"
+    },
+    {
+      "symbol": "BSWUSDT",
+      "base_asset": "BSW",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BSWUSDT"
+    },
+    {
+      "symbol": "BTCSTUSDT",
+      "base_asset": "BTCST",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/BTCSTUSDT"
+    },
+    {
+      "symbol": "CHESSUSDT",
+      "base_asset": "CHESS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CHESSUSDT"
+    },
+    {
+      "symbol": "COMBOUSDT",
+      "base_asset": "COMBO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/COMBOUSDT"
+    },
+    {
+      "symbol": "COMMONUSDT",
+      "base_asset": "COMMON",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/COMMONUSDT"
+    },
+    {
+      "symbol": "COSUSDT",
+      "base_asset": "COS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/COSUSDT"
+    },
+    {
+      "symbol": "CUDISUSDT",
+      "base_asset": "CUDIS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/CUDISUSDT"
+    },
+    {
+      "symbol": "DAMUSDT",
+      "base_asset": "DAM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DAMUSDT"
+    },
+    {
+      "symbol": "DARUSDT",
+      "base_asset": "DAR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DARUSDT"
+    },
+    {
+      "symbol": "DEFIUSDT",
+      "base_asset": "DEFI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DEFIUSDT"
+    },
+    {
+      "symbol": "DEGENUSDT",
+      "base_asset": "DEGEN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DEGENUSDT"
+    },
+    {
+      "symbol": "DEGOUSDT",
+      "base_asset": "DEGO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DEGOUSDT"
+    },
+    {
+      "symbol": "DENTUSDT",
+      "base_asset": "DENT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DENTUSDT"
+    },
+    {
+      "symbol": "DFUSDT",
+      "base_asset": "DF",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DFUSDT"
+    },
+    {
+      "symbol": "DMCUSDT",
+      "base_asset": "DMC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DMCUSDT"
+    },
+    {
+      "symbol": "DUSDT",
+      "base_asset": "D",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/DUSDT"
+    },
+    {
+      "symbol": "EPTUSDT",
+      "base_asset": "EPT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/EPTUSDT"
+    },
+    {
+      "symbol": "FIOUSDT",
+      "base_asset": "FIO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FIOUSDT"
+    },
+    {
+      "symbol": "FISUSDT",
+      "base_asset": "FIS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FISUSDT"
+    },
+    {
+      "symbol": "FLMUSDT",
+      "base_asset": "FLM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FLMUSDT"
+    },
+    {
+      "symbol": "FORTHUSDT",
+      "base_asset": "FORTH",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FORTHUSDT"
+    },
+    {
+      "symbol": "FTMUSDT",
+      "base_asset": "FTM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FTMUSDT"
+    },
+    {
+      "symbol": "FUNUSDT",
+      "base_asset": "FUN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FUNUSDT"
+    },
+    {
+      "symbol": "FXSUSDT",
+      "base_asset": "FXS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/FXSUSDT"
+    },
+    {
+      "symbol": "GHSTUSDT",
+      "base_asset": "GHST",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/GHSTUSDT"
+    },
+    {
+      "symbol": "HIFIUSDT",
+      "base_asset": "HIFI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HIFIUSDT"
+    },
+    {
+      "symbol": "HIGHUSDT",
+      "base_asset": "HIGH",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HIGHUSDT"
+    },
+    {
+      "symbol": "HIPPOUSDT",
+      "base_asset": "HIPPO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HIPPOUSDT"
+    },
+    {
+      "symbol": "HOOKUSDT",
+      "base_asset": "HOOK",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/HOOKUSDT"
+    },
+    {
+      "symbol": "IDEXUSDT",
+      "base_asset": "IDEX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/IDEXUSDT"
+    },
+    {
+      "symbol": "IPUSDC",
+      "base_asset": "IP",
+      "quote_asset": "USDC",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/IPUSDC"
+    },
+    {
+      "symbol": "IPUSDT",
+      "base_asset": "IP",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/IPUSDT"
+    },
+    {
+      "symbol": "IRUSDT",
+      "base_asset": "IR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/IRUSDT"
+    },
+    {
+      "symbol": "KDAUSDT",
+      "base_asset": "KDA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/KDAUSDT"
+    },
+    {
+      "symbol": "KEYUSDT",
+      "base_asset": "KEY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/KEYUSDT"
+    },
+    {
+      "symbol": "KLAYUSDT",
+      "base_asset": "KLAY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/KLAYUSDT"
+    },
+    {
+      "symbol": "LEVERUSDT",
+      "base_asset": "LEVER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LEVERUSDT"
+    },
+    {
+      "symbol": "LINAUSDT",
+      "base_asset": "LINA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LINAUSDT"
+    },
+    {
+      "symbol": "LOKAUSDT",
+      "base_asset": "LOKA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LOKAUSDT"
+    },
+    {
+      "symbol": "LOOMUSDT",
+      "base_asset": "LOOM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LOOMUSDT"
+    },
+    {
+      "symbol": "LRCUSDT",
+      "base_asset": "LRC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/LRCUSDT"
+    },
+    {
+      "symbol": "MBOXUSDT",
+      "base_asset": "MBOX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MBOXUSDT"
+    },
+    {
+      "symbol": "MDTUSDT",
+      "base_asset": "MDT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MDTUSDT"
+    },
+    {
+      "symbol": "MEMEFIUSDT",
+      "base_asset": "MEMEFI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MEMEFIUSDT"
+    },
+    {
+      "symbol": "MILKUSDT",
+      "base_asset": "MILK",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MILKUSDT"
+    },
+    {
+      "symbol": "MKRUSDT",
+      "base_asset": "MKR",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MKRUSDT"
+    },
+    {
+      "symbol": "MLNUSDT",
+      "base_asset": "MLN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MLNUSDT"
+    },
+    {
+      "symbol": "MYROUSDT",
+      "base_asset": "MYRO",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/MYROUSDT"
+    },
+    {
+      "symbol": "NEIROETHUSDT",
+      "base_asset": "NEIROETH",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NEIROETHUSDT"
+    },
+    {
+      "symbol": "NFPUSDT",
+      "base_asset": "NFP",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NFPUSDT"
+    },
+    {
+      "symbol": "NKNUSDT",
+      "base_asset": "NKN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NKNUSDT"
+    },
+    {
+      "symbol": "NTRNUSDT",
+      "base_asset": "NTRN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NTRNUSDT"
+    },
+    {
+      "symbol": "NULSUSDT",
+      "base_asset": "NULS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/NULSUSDT"
+    },
+    {
+      "symbol": "OBOLUSDT",
+      "base_asset": "OBOL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/OBOLUSDT"
+    },
+    {
+      "symbol": "OCEANUSDT",
+      "base_asset": "OCEAN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/OCEANUSDT"
+    },
+    {
+      "symbol": "OLUSDT",
+      "base_asset": "OL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/OLUSDT"
+    },
+    {
+      "symbol": "OMGUSDT",
+      "base_asset": "OMG",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/OMGUSDT"
+    },
+    {
+      "symbol": "OMNIUSDT",
+      "base_asset": "OMNI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/OMNIUSDT"
+    },
+    {
+      "symbol": "OMUSDT",
+      "base_asset": "OM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/OMUSDT"
+    },
+    {
+      "symbol": "ORBSUSDT",
+      "base_asset": "ORBS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ORBSUSDT"
+    },
+    {
+      "symbol": "OXTUSDT",
+      "base_asset": "OXT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/OXTUSDT"
+    },
+    {
+      "symbol": "PERPUSDT",
+      "base_asset": "PERP",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PERPUSDT"
+    },
+    {
+      "symbol": "PHBUSDT",
+      "base_asset": "PHB",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PHBUSDT"
+    },
+    {
+      "symbol": "PONKEUSDT",
+      "base_asset": "PONKE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PONKEUSDT"
+    },
+    {
+      "symbol": "PORT3USDT",
+      "base_asset": "PORT3",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PORT3USDT"
+    },
+    {
+      "symbol": "PUFFERUSDT",
+      "base_asset": "PUFFER",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/PUFFERUSDT"
+    },
+    {
+      "symbol": "RDNTUSDT",
+      "base_asset": "RDNT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RDNTUSDT"
+    },
+    {
+      "symbol": "REEFUSDT",
+      "base_asset": "REEF",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/REEFUSDT"
+    },
+    {
+      "symbol": "REIUSDT",
+      "base_asset": "REI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/REIUSDT"
+    },
+    {
+      "symbol": "RENUSDT",
+      "base_asset": "REN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RENUSDT"
+    },
+    {
+      "symbol": "RLSUSDT",
+      "base_asset": "RLS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RLSUSDT"
+    },
+    {
+      "symbol": "RVVUSDT",
+      "base_asset": "RVV",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/RVVUSDT"
+    },
+    {
+      "symbol": "SKATEUSDT",
+      "base_asset": "SKATE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SKATEUSDT"
+    },
+    {
+      "symbol": "SLERFUSDT",
+      "base_asset": "SLERF",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SLERFUSDT"
+    },
+    {
+      "symbol": "SNTUSDT",
+      "base_asset": "SNT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SNTUSDT"
+    },
+    {
+      "symbol": "STMXUSDT",
+      "base_asset": "STMX",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/STMXUSDT"
+    },
+    {
+      "symbol": "STPTUSDT",
+      "base_asset": "STPT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/STPTUSDT"
+    },
+    {
+      "symbol": "SWELLUSDT",
+      "base_asset": "SWELL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SWELLUSDT"
+    },
+    {
+      "symbol": "SYSUSDT",
+      "base_asset": "SYS",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/SYSUSDT"
+    },
+    {
+      "symbol": "TANSSIUSDT",
+      "base_asset": "TANSSI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TANSSIUSDT"
+    },
+    {
+      "symbol": "TOKENUSDT",
+      "base_asset": "TOKEN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TOKENUSDT"
+    },
+    {
+      "symbol": "TONUSDT",
+      "base_asset": "TON",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TONUSDT"
+    },
+    {
+      "symbol": "TROYUSDT",
+      "base_asset": "TROY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TROYUSDT"
+    },
+    {
+      "symbol": "TRUUSDT",
+      "base_asset": "TRU",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/TRUUSDT"
+    },
+    {
+      "symbol": "UNFIUSDT",
+      "base_asset": "UNFI",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/UNFIUSDT"
+    },
+    {
+      "symbol": "UXLINKUSDT",
+      "base_asset": "UXLINK",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/UXLINKUSDT"
+    },
+    {
+      "symbol": "VFYUSDT",
+      "base_asset": "VFY",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/VFYUSDT"
+    },
+    {
+      "symbol": "VIDTUSDT",
+      "base_asset": "VIDT",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/VIDTUSDT"
+    },
+    {
+      "symbol": "VINEUSDT",
+      "base_asset": "VINE",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/VINEUSDT"
+    },
+    {
+      "symbol": "VOXELUSDT",
+      "base_asset": "VOXEL",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/VOXELUSDT"
+    },
+    {
+      "symbol": "WAVESUSDT",
+      "base_asset": "WAVES",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/WAVESUSDT"
+    },
+    {
+      "symbol": "XCNUSDT",
+      "base_asset": "XCN",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XCNUSDT"
+    },
+    {
+      "symbol": "XEMUSDT",
+      "base_asset": "XEM",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/XEMUSDT"
+    },
+    {
+      "symbol": "YALAUSDT",
+      "base_asset": "YALA",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/YALAUSDT"
+    },
+    {
+      "symbol": "ZKJUSDT",
+      "base_asset": "ZKJ",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ZKJUSDT"
+    },
+    {
+      "symbol": "ZRCUSDT",
+      "base_asset": "ZRC",
+      "quote_asset": "USDT",
+      "quote_volume_24h": "0",
+      "volume_date": "2026-07-27",
+      "selected": false,
+      "trade_url": "https://www.binance.com/en/futures/ZRCUSDT"
+    }
+  ]
 }
