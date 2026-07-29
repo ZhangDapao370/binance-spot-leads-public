@@ -3,7 +3,7 @@
   "data_type": "binance_perpetual_contracts",
   "public_read_only": true,
   "timezone": "Asia/Shanghai",
-  "generated_at": "2026-07-29T02:24:49.525843Z",
+  "generated_at": "2026-07-29T04:13:58.913369Z",
   "source": {
     "name": "Binance",
     "category": "New Cryptocurrency Listing",
