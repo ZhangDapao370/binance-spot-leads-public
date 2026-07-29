@@ -1,4 +1,4 @@
-name: 每日更新 Binance 现货与永续合约
+name: 每日更新 Binance 现货、永续合约与成交指标
 
 on:
   schedule:
@@ -59,10 +59,19 @@ jobs:
             --all-json data/contracts.json \
             --state /tmp/binance_seen_perpetual.json
 
+      - name: 统计 Binance 仅合约域成交量
+        run: |
+          python scripts/binance_futures_only_metrics.py \
+            --no-proxy \
+            --contracts-json data/contracts.json \
+            --json /tmp/binance_futures_only_metrics.json \
+            --public-json data/futures_only_metrics.json
+
       - name: 校验公开数据
         run: |
           python - <<'PY'
           import json
+          from decimal import Decimal, InvalidOperation
           from pathlib import Path
 
           payload = json.loads(Path("data/listings.json").read_text(encoding="utf-8"))
@@ -98,16 +107,56 @@ jobs:
           if any("workflow_status" in item or "notes" in item for item in contracts):
               raise SystemExit("遇到错误：合约数据校验，返回内容：包含内部处理字段")
           print(f"完成：合约数据校验通过，共 {len(contracts)} 条永续合约记录")
+
+          metrics_payload = json.loads(Path("data/futures_only_metrics.json").read_text(encoding="utf-8"))
+          if metrics_payload.get("data_type") != "binance_futures_only_metrics":
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：data_type 不正确")
+          if metrics_payload.get("status") != "ready":
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：status 不是 ready")
+          if not metrics_payload.get("public_read_only"):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：public_read_only 不是 true")
+          metrics = metrics_payload.get("summary")
+          metric_items = metrics_payload.get("items")
+          if not isinstance(metrics, dict) or not isinstance(metric_items, list):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：summary 或 items 结构不正确")
+          try:
+              pair_count = int(metrics["futures_only_pair_count"])
+              selected_count = int(metrics["selected_futures_only_pair_count"])
+              total_volume = Decimal(metrics["futures_only_quote_volume_24h"])
+              selected_volume = Decimal(metrics["selected_futures_only_quote_volume_24h"])
+              share = Decimal(metrics["selected_volume_share_percent"])
+              item_volume = sum((Decimal(item["quote_volume_24h"]) for item in metric_items), Decimal("0"))
+              selected_item_volume = sum(
+                  (Decimal(item["quote_volume_24h"]) for item in metric_items if item.get("selected")),
+                  Decimal("0"),
+              )
+          except (KeyError, TypeError, ValueError, InvalidOperation) as exc:
+              raise SystemExit(f"遇到错误：仅合约域数据校验，返回内容：数值字段无效 {exc}") from exc
+          if pair_count <= 0 or pair_count != len(metric_items):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：币对数量为空或与 items 不一致")
+          if total_volume <= 0 or item_volume != total_volume:
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：总成交额为空或与明细合计不一致")
+          if selected_count != sum(1 for item in metric_items if item.get("selected")):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：选中币对数量与明细不一致")
+          if selected_volume < 0 or selected_volume > total_volume or selected_item_volume != selected_volume:
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：选中成交额范围或明细合计不正确")
+          expected_share = selected_volume / total_volume * Decimal("100")
+          if abs(expected_share - share) > Decimal("0.000001"):
+              raise SystemExit("遇到错误：仅合约域数据校验，返回内容：选中成交额占比公式不一致")
+          print(
+              f"完成：仅合约域数据校验通过，共 {pair_count} 个币对，"
+              f"选中 {selected_count} 个，占比 {share}%"
+          )
           PY
 
       - name: 提交数据变化
         run: |
-          if git diff --quiet -- data/listings.json data/listings.csv data/contracts.json data/contracts.csv; then
+          if git diff --quiet -- data/listings.json data/listings.csv data/contracts.json data/contracts.csv data/futures_only_metrics.json; then
             echo "完成：本次官方数据没有变化"
             exit 0
           fi
           git config user.name "Binance 上新自动任务"
           git config user.email "actions@users.noreply.github.com"
-          git add data/listings.json data/listings.csv data/contracts.json data/contracts.csv
-          git commit -m "每日更新币安现货与永续合约数据"
+          git add data/listings.json data/listings.csv data/contracts.json data/contracts.csv data/futures_only_metrics.json
+          git commit -m "每日更新币安现货、永续合约与成交指标"
           git push

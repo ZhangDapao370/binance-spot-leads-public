@@ -1,12 +1,14 @@
 const DATA_PATHS = {
   spot: "data/listings.json",
   perpetual: "data/contracts.json",
+  futuresOnlyMetrics: "data/futures_only_metrics.json",
 };
 
 const state = {
   spotItems: [],
   contractItems: [],
-  generatedAt: { spot: "", perpetual: "" },
+  futuresOnlyMetrics: null,
+  generatedAt: { spot: "", perpetual: "", futuresOnlyMetrics: "" },
   view: "spot",
   query: "",
   tag: "全部",
@@ -145,6 +147,53 @@ function formatSyncTime(value) {
   if (!value) return "尚未同步";
   const full = formatBeijingTime(value);
   return full === "-" ? full : full.slice(5, 16);
+}
+
+function formatUsdVolume(value) {
+  const amount = Number(value);
+  if (!Number.isFinite(amount) || amount < 0) return "待同步";
+  const format = (number) => new Intl.NumberFormat("zh-CN", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(number);
+  if (amount >= 1000000000000) return `${format(amount / 1000000000000)} 万亿美元`;
+  if (amount >= 100000000) return `${format(amount / 100000000)} 亿美元`;
+  if (amount >= 10000) return `${format(amount / 10000)} 万美元`;
+  return `${format(amount)} 美元`;
+}
+
+function setMetricValue(selector, display, exactValue = "") {
+  const node = document.querySelector(selector);
+  node.textContent = display;
+  node.title = exactValue ? `${exactValue} 美元稳定币计价等值` : "";
+}
+
+function renderDomainMetrics(payload) {
+  const pending = payload.status !== "ready";
+  const summary = payload.summary || {};
+  if (pending) {
+    document.querySelector("#domain-metrics-time").textContent = "等待云端首次真实统计";
+    setMetricValue("#domain-pair-count", "待同步");
+    setMetricValue("#domain-volume", "待同步");
+    setMetricValue("#selected-domain-volume", "待同步");
+    setMetricValue("#selected-domain-share", "待同步");
+    document.querySelector("#selected-domain-count").textContent = "最近合约公告交集";
+    return;
+  }
+
+  const totalVolume = summary.futures_only_quote_volume_24h;
+  const selectedVolume = summary.selected_futures_only_quote_volume_24h;
+  const share = Number(summary.selected_volume_share_percent);
+  const pairCount = Number(summary.futures_only_pair_count);
+  const selectedCount = Number(summary.selected_futures_only_pair_count);
+  document.querySelector("#domain-metrics-time").textContent = `滚动 24 小时 · 统计于 ${formatBeijingTime(payload.generated_at)}`;
+  setMetricValue("#domain-pair-count", Number.isInteger(pairCount) ? String(pairCount) : "待同步");
+  setMetricValue("#domain-volume", formatUsdVolume(totalVolume), totalVolume);
+  setMetricValue("#selected-domain-volume", formatUsdVolume(selectedVolume), selectedVolume);
+  setMetricValue("#selected-domain-share", Number.isFinite(share) ? `${share.toFixed(2)}%` : "待同步");
+  document.querySelector("#selected-domain-count").textContent = Number.isInteger(selectedCount)
+    ? `命中 ${selectedCount} 个最近合约公告币对`
+    : "最近合约公告交集";
 }
 
 function launchValue(item) {
@@ -416,6 +465,7 @@ function updateViewControls() {
   document.querySelector("#workspace-title").textContent = spot ? "现货上币记录" : "永续合约上线记录";
   document.querySelector("#spot-tag-filter").classList.toggle("hidden", !spot);
   document.querySelector("#asset-filter").classList.toggle("hidden", spot);
+  document.querySelector("#domain-metrics").classList.toggle("hidden", spot);
   document.querySelector("#current-data-link").href = DATA_PATHS[state.view];
   document.querySelectorAll("button[data-view]").forEach((button) => {
     const active = button.dataset.view === state.view;
@@ -426,7 +476,7 @@ function updateViewControls() {
 }
 
 function switchView(view) {
-  if (!DATA_PATHS[view] || state.view === view) return;
+  if (!["spot", "perpetual"].includes(view) || state.view === view) return;
   state.view = view;
   state.query = "";
   state.tag = "全部";
@@ -470,16 +520,35 @@ async function loadPayload(path, expectedType) {
   return payload;
 }
 
+async function loadMetricsPayload(path) {
+  const response = await fetch(path, { cache: "no-store" });
+  if (!response.ok) throw new Error(`${path} HTTP ${response.status}`);
+  const payload = await response.json();
+  if (!payload || payload.data_type !== "binance_futures_only_metrics") {
+    throw new Error(`${path} 的 data_type 不正确`);
+  }
+  if (!payload.public_read_only || !["pending_first_sync", "ready"].includes(payload.status)) {
+    throw new Error(`${path} 的公开状态不正确`);
+  }
+  if (!payload.summary || !Array.isArray(payload.items)) {
+    throw new Error(`${path} 的 summary 或 items 结构不正确`);
+  }
+  return payload;
+}
+
 async function loadData() {
   try {
-    const [spotPayload, contractPayload] = await Promise.all([
+    const [spotPayload, contractPayload, metricsPayload] = await Promise.all([
       loadPayload(DATA_PATHS.spot, "spot"),
       loadPayload(DATA_PATHS.perpetual, "perpetual"),
+      loadMetricsPayload(DATA_PATHS.futuresOnlyMetrics),
     ]);
     state.spotItems = spotPayload.items;
     state.contractItems = contractPayload.items;
+    state.futuresOnlyMetrics = metricsPayload;
     state.generatedAt.spot = spotPayload.generated_at;
     state.generatedAt.perpetual = contractPayload.generated_at;
+    state.generatedAt.futuresOnlyMetrics = metricsPayload.generated_at;
     const first = currentItems()[0];
     state.expandedId = first ? recordId(first) : null;
 
@@ -493,7 +562,8 @@ async function loadData() {
         return value && new Date(value).getTime() > Date.now();
       }).length,
     );
-    const syncTimes = [spotPayload.generated_at, contractPayload.generated_at]
+    renderDomainMetrics(metricsPayload);
+    const syncTimes = [spotPayload.generated_at, contractPayload.generated_at, metricsPayload.generated_at]
       .filter(Boolean)
       .sort();
     const newestSync = syncTimes[syncTimes.length - 1];
